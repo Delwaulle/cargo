@@ -278,5 +278,19 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+	public void supprimerToutesLesTables(){
+		try {
+			this.connect();
+
+			stmt.executeUpdate("DROP TABLE cargouser;");
+
+			stmt.executeUpdate("DROP TABLE trajet;");
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+	}
+
 
 }
