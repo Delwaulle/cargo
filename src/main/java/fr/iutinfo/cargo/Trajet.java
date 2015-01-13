@@ -1,23 +1,23 @@
 package fr.iutinfo.cargo;
 
 public class Trajet {
-	private int idtrajet;
+	private Integer idtrajet;
 	private String iduser;
 	private String villeDepart;
 	private String villeArrivee;
 	private String dateTrajet;
-	private int heureDepart;
-	private int heureArrivee;
-	private double prix;
-	private int nbPlace;
+	private Integer heureDepart;
+	private Integer heureArrivee;
+	private Double prix;
+	private Integer nbPlace;
 
 	public Trajet() {
 
 	}
 
-	public Trajet(int idtrajet, String iduser, String villeDepart,
-			String villeArrivee, String dateTrajet, int heureDepart,
-			int heureArrivee, int nbPlace, double prix) {
+	public Trajet(Integer idtrajet, String iduser, String villeDepart,
+			String villeArrivee, String dateTrajet, Integer heureDepart,
+			Integer heureArrivee, Integer nbPlace, Double prix) {
 		this.idtrajet = idtrajet;
 		this.iduser = iduser;
 		this.villeDepart = villeDepart;
@@ -29,11 +29,11 @@ public class Trajet {
 		this.prix = prix;
 	}
 
-	public int getIdtrajet() {
+	public Integer getIdtrajet() {
 		return idtrajet;
 	}
 
-	public void setIdtrajet(int idtrajet) {
+	public void setIdtrajet(Integer idtrajet) {
 		this.idtrajet = idtrajet;
 	}
 
@@ -69,35 +69,35 @@ public class Trajet {
 		this.dateTrajet = dateTrajet;
 	}
 
-	public int getHeureDepart() {
+	public Integer getHeureDepart() {
 		return heureDepart;
 	}
 
-	public void setHeureDepart(int heureDepart) {
+	public void setHeureDepart(Integer heureDepart) {
 		this.heureDepart = heureDepart;
 	}
 
-	public int getHeureArrivee() {
+	public Integer getHeureArrivee() {
 		return heureArrivee;
 	}
 
-	public void setHeureArrivee(int heureArrivee) {
+	public void setHeureArrivee(Integer heureArrivee) {
 		this.heureArrivee = heureArrivee;
 	}
 
-	public double getPrix() {
+	public Double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(double prix) {
+	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
 
-	public int getNbPlace() {
+	public Integer getNbPlace() {
 		return nbPlace;
 	}
 
-	public void setNbPlace(int nbPlace) {
+	public void setNbPlace(Integer nbPlace) {
 		this.nbPlace = nbPlace;
 	}
 
