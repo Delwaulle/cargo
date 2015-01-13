@@ -114,7 +114,7 @@ public class OutilBDD {
 		}
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from trajet where "+where);
+			rs = stmt.executeQuery("select * from trajet where " + where);
 			while (rs.next()) {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
@@ -132,13 +132,23 @@ public class OutilBDD {
 
 	}
 
-	public void ajouterTrajet(Trajet t) {
+	public void ajouterTrajet(String iduser, String villeDepart,
+			String villeArrivee, String dateTrajet, int heureDepart,
+			int heureArrivee, int nbPlace, double prix) {
 		try {
 			this.connect();
-			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('" + t.getIduser() + "','" + t.getVilleDepart() + "','"
-					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
-					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
-					+ t.getNbPlace() + "," + t.getPrix() + ")";
+			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('"
+					+ iduser
+					+ "','"
+					+ villeDepart
+					+ "','"
+					+ villeArrivee
+					+ "','"
+					+ dateTrajet
+					+ "',"
+					+ heureDepart
+					+ ","
+					+ heureArrivee + "," + nbPlace + "," + prix + ")";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -151,13 +161,14 @@ public class OutilBDD {
 	public void supprimerTrajet(Trajet t) {
 		try {
 			this.connect();
-			stmt.executeUpdate("DELETE from trajet where idtrajet="+t.getIdtrajet()+";");
+			stmt.executeUpdate("DELETE from trajet where idtrajet="
+					+ t.getIdtrajet() + ";");
 			this.close();
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			this.close();
-		}		
+		}
 	}
 
 	public void creerTables() {
@@ -171,5 +182,7 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+
 	
+
 }
