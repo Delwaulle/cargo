@@ -22,14 +22,6 @@ public class ProposerTrajet extends HttpServlet{
 			res.sendRedirect("../login.html");
 		}*/
 		out.println("<head><Title> Proposer un trajet </Title></head>");
-	//	out.println("<H1> Bonjour "+login +"</h1>");
-		String villeD;
-		String villeA;
-		String date;
-		int nbPlaces;
-		String prix;
-		int heureA;
-		int heureD;
 			out.println("<FORM method=get action=../servlet/ValiderProposition");
 			
 			out.println("<BR>");
@@ -49,7 +41,7 @@ public class ProposerTrajet extends HttpServlet{
 			out.println("<BR>");
 			
 			
-			out.println("Prix : <input type=text name=heureD value=\'\'>");
+			out.println("Prix : <input type=text name=prix value=\'\'>");
 			out.println("<BR>");
 			
 			out.println(" <INPUT type=submit value=Suivant>");

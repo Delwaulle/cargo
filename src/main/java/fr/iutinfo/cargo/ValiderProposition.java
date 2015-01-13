@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 @WebServlet("/servlet/ValiderProposition")
 public class ValiderProposition extends HttpServlet{
-	
-	private OutilBDD obdd = new OutilBDD();
 	public void service( HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType( "text/html" );
@@ -25,17 +23,17 @@ public class ValiderProposition extends HttpServlet{
 		String villeD=req.getParameter("villeD");
 		String villeA=req.getParameter("villeA");
 		String date=req.getParameter("date");
-		String nbPlaces=req.getParameter("villeD");
+		String nbPlaces=req.getParameter("nbPlaces");
 		String prix=req.getParameter("prix");
 		String heureA=req.getParameter("villeD");
-		String heureD=req.getParameter("villeD");
+		String heureD=req.getParameter("heureD");
 		
 		
 		out.println("<table>" +
 				"<tr><th>" +
 				"Pseudo</th><th>" +
 				"Ville de départ</th> <th>" +
-				"Ville d'arrivée</th></th>" +
+				"Ville d'arrivée</th><th>" +
 				"Date</th> <th>" +
 				"Heure de départ</th> <th>" +
 				"Nombre de place(s) disponible(s)</th> <th>" +
@@ -48,7 +46,19 @@ public class ValiderProposition extends HttpServlet{
 				heureD+"</td><td>" +
 				nbPlaces+"</td><td>" +
 				prix+"</td></tr><tr><td>");
-		
+		out.println("<FORM method=get action=../servlet/PosterProposition");
+		out.println("<input type =hidden name=villeD value=\'\'>");
+
+		out.println("<input type =hidden name=villeA value=\'\'>");
+
+		out.println("<input type =hidden name=date value=\'\'>");
+
+		out.println("<input type =hidden name=nbPlaces value=\'\'>");
+		out.println("<input type =hidden name=heureD value=\'\'>");
+
+		out.println("<input type=hidden name=prix value=\'\'>");
+		out.println("<INPUT type=submit value=Poster la proposition>");
+		out.println("</FORM>");
 	}
 
 }
