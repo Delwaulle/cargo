@@ -15,8 +15,8 @@ public class Trajet {
 	}
 
 	public Trajet(int idtrajet, String iduser, String villeDepart,
-			String villeArrivee, String dateTrajet, int heureDepart,
-			int heureArrivee, double prix) {
+		String villeArrivee, String dateTrajet, int heureDepart,
+		int heureArrivee, double prix) {
 		this.idtrajet = idtrajet;
 		this.iduser = iduser;
 		this.villeDepart = villeDepart;
