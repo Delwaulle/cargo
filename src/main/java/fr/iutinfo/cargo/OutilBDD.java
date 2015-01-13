@@ -236,6 +236,30 @@ public class OutilBDD {
 			requete+= ",";
 			argumentNonNUll=false;
 		}
+		if(prenom !=null){
+			requete+="prenom = '"+prenom+"'";
+			argumentNonNUll=true;
+		}
+		if(argumentNonNUll){
+			requete+= ",";
+			argumentNonNUll=false;
+		}
+		if(numtel !=null){
+			requete+="numtel = '"+numtel+"'";
+			argumentNonNUll=true;
+		}
+		if(argumentNonNUll){
+			requete+= ",";
+			argumentNonNUll=false;
+		}
+		if(mail !=null){
+			requete+="mail = '"+mail+"'";
+			argumentNonNUll=true;
+		}
+		if(argumentNonNUll){
+			requete+= ",";
+			argumentNonNUll=false;
+		}
 		
 	}
 	
