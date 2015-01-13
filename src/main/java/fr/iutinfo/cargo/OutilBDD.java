@@ -54,7 +54,7 @@ public class OutilBDD {
 
 	public ArrayList<Trajet> recupererListeTrajets(String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
-			int heureDepart, int heureArrivee, int nbPlace, double prix) {
+			Integer heureDepart, Integer heureArrivee, Integer nbPlace, Double prix) {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
