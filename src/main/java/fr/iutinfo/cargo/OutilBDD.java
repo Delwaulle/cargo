@@ -54,7 +54,7 @@ public class OutilBDD {
 
 	public ArrayList<Trajet> recupererListeTrajets(String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
-			int heureDepart, int heureArrivee, int nbPlace, double prix) {
+			Integer heureDepart, Integer heureArrivee, Integer nbPlace, Double prix) {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
@@ -87,28 +87,28 @@ public class OutilBDD {
 		if (dejaUneCondition) {
 			where += "and ";
 		}
-		if ((Integer) heureDepart != null) {
+		if (heureDepart != null) {
 			where += "hdep = " + heureDepart + " ";
 			dejaUneCondition = true;
 		}
 		if (dejaUneCondition) {
 			where += "and ";
 		}
-		if ((Integer) heureArrivee != null) {
+		if (heureArrivee != null) {
 			where += "harr = " + heureArrivee + " ";
 			dejaUneCondition = true;
 		}
 		if (dejaUneCondition) {
 			where += "and ";
 		}
-		if ((Integer) nbPlace != null) {
+		if ( nbPlace != null) {
 			where += "nbplace = " + nbPlace + " ";
 			dejaUneCondition = true;
 		}
 		if (dejaUneCondition) {
 			where += "and ";
 		}
-		if ((Double) prix != null) {
+		if (prix != null) {
 			where += "prix = " + prix + " ";
 			dejaUneCondition = true;
 		}
@@ -133,8 +133,8 @@ public class OutilBDD {
 	}
 
 	public void ajouterTrajet(String iduser, String villeDepart,
-			String villeArrivee, String dateTrajet, int heureDepart,
-			int heureArrivee, int nbPlace, double prix) {
+			String villeArrivee, String dateTrajet, Integer heureDepart,
+			Integer heureArrivee, Integer nbPlace, Double prix) {
 		try {
 			this.connect();
 			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('"
@@ -182,7 +182,5 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-
-	
 
 }
