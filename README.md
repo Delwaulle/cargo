@@ -1,3 +1,26 @@
+#BDD
+identifiant : clavelm
+mdp : moi
+
+Les tables sont :
+
+cargouser :
+- iduser varchar(20) (PKEY)
+- mdp text
+
+trajet :
+- idtrajet serial
+- iduser varchar(20) (FKEY)
+- villedepart text
+- villearrivee text
+- datetrajet date (AAAA-MM-JJ)
+- hdep int
+- harr int
+- prix float
+
+
+
+
 # Création d'un projet en mode étudiant
 
 Sur github :
