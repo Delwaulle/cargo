@@ -30,10 +30,12 @@ public class OutilBDD {
 			while (rs.next()) {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getInt(8));
+						rs.getInt(6), rs.getInt(7), rs.getInt(8),
+						rs.getDouble(9));
 				liste.add(t);
-				this.close();
+
 			}
+			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			this.close();
@@ -53,12 +55,50 @@ public class OutilBDD {
 	public ArrayList<Trajet> recupererListeTrajets(String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
 			int heureDepart, int heureArrivee, double prix) {
+		ArrayList<Trajet> liste = new ArrayList<Trajet>();
+		ResultSet rs;
+		String where = " ";
+		if (iduser != null) {
+			where += "iduser like %" + iduser + " ";
+		}
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select * from trajet where ");
+			while (rs.next()) {
+				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getInt(7), rs.getInt(8),
+						rs.getDouble(9));
+				liste.add(t);
 
-		return null;
+			}
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return (ArrayList<Trajet>) liste;
+
 	}
 
 	public void ajouterTrajet(Trajet t) {
-
+		try {
+			this.connect();
+			System.out.println("insert into trajet values (" + t.getIdtrajet()
+					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
+					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
+					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
+					+ t.getNbPlace() + "," + t.getPrix());
+			stmt.executeUpdate("insert into trajet values (" + t.getIdtrajet()
+					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
+					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
+					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
+					+ t.getNbPlace() + "," + t.getPrix());
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
 	}
 
 	public void supprimerTrajet(Trajet t) {

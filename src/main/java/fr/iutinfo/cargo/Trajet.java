@@ -9,14 +9,15 @@ public class Trajet {
 	private int heureDepart;
 	private int heureArrivee;
 	private double prix;
+	private int nbPlace;
 
 	public Trajet() {
 
 	}
 
 	public Trajet(int idtrajet, String iduser, String villeDepart,
-		String villeArrivee, String dateTrajet, int heureDepart,
-		int heureArrivee, double prix) {
+			String villeArrivee, String dateTrajet, int heureDepart,
+			int heureArrivee, int nbPlace, double prix) {
 		this.idtrajet = idtrajet;
 		this.iduser = iduser;
 		this.villeDepart = villeDepart;
@@ -24,6 +25,7 @@ public class Trajet {
 		this.dateTrajet = dateTrajet;
 		this.heureDepart = heureDepart;
 		this.heureArrivee = heureArrivee;
+		this.setNbPlace(nbPlace);
 		this.prix = prix;
 	}
 
@@ -89,6 +91,14 @@ public class Trajet {
 
 	public void setPrix(double prix) {
 		this.prix = prix;
+	}
+
+	public int getNbPlace() {
+		return nbPlace;
+	}
+
+	public void setNbPlace(int nbPlace) {
+		this.nbPlace = nbPlace;
 	}
 
 }
