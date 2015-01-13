@@ -47,16 +47,16 @@ public class ValiderProposition extends HttpServlet{
 				nbPlaces+"</td><td>" +
 				prix+"</td></tr><tr><td>");
 		out.println("<FORM method=get action=../servlet/PosterProposition");
-		out.println("<input type =hidden name=villeD value=\'\'>");
+		out.println("<input type =hidden name=villeD value="+villeD+">");
 
-		out.println("<input type =hidden name=villeA value=\'\'>");
+		out.println("<input type =hidden name=villeA value="+villeA+">");
 
-		out.println("<input type =hidden name=date value=\'\'>");
+		out.println("<input type =hidden name=date value="+date+">");
 
-		out.println("<input type =hidden name=nbPlaces value=\'\'>");
-		out.println("<input type =hidden name=heureD value=\'\'>");
+		out.println("<input type =hidden name=nbPlaces value="+nbPlaces+">");
+		out.println("<input type =hidden name=heureD value="+heureD+">");
 
-		out.println("<input type=hidden name=prix value=\'\'>");
+		out.println("<input type=hidden name=prix value="+prix+"v>");
 		out.println("<INPUT type=submit value=Poster la proposition>");
 		out.println("</FORM>");
 	}

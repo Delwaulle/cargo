@@ -25,23 +25,23 @@ public class ProposerTrajet extends HttpServlet{
 			out.println("<FORM method=get action=../servlet/ValiderProposition");
 			
 			out.println("<BR>");
-			out.println("Ville de départ : <input type =text name=villeD value=\'\'>");
+			out.println("Ville de départ : <input type =text name=villeD value=>");
 			out.println("<BR>");
 			
-			out.println("Ville d'arrivée : <input type =text name=villeA value=\'\'>");
+			out.println("Ville d'arrivée : <input type =text name=villeA value=>");
 			out.println("<BR>");
 			
-			out.println("Date : <input type =date name=date value=\'\'>");
+			out.println("Date : <input type =date name=date value=>");
 			out.println("<BR>");
 			
-			out.println("Nombre de place(s) disponible(s) : <input type =text name=nbPlaces value=\'\'>");
+			out.println("Nombre de place(s) disponible(s) : <input type =text name=nbPlaces value=>");
 			out.println("<BR>");
 			
-			out.println("Heure de départ : <input type =text name=heureD value=\'\'>");
+			out.println("Heure de départ : <input type =text name=heureD value=>");
 			out.println("<BR>");
 			
 			
-			out.println("Prix : <input type=text name=prix value=\'\'>");
+			out.println("Prix : <input type=text name=prix value=>");
 			out.println("<BR>");
 			
 			out.println(" <INPUT type=submit value=Suivant>");

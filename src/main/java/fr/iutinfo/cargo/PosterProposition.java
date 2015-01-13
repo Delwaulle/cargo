@@ -2,6 +2,7 @@ package fr.iutinfo.cargo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,16 +22,32 @@ public class PosterProposition extends HttpServlet{
 		/*if(login==null){
 			res.sendRedirect("../login.html");
 		}*/
-		
+		login="loic";
 		String villeD=req.getParameter("villeD");
 		String villeA=req.getParameter("villeA");
 		String date=req.getParameter("date");
-		int nbPlaces=Integer.parseInt(req.getParameter("nbPlaces"));
-		double prix=Double.parseDouble(req.getParameter("prix"));
 		String heureA=req.getParameter("villeD");
-		int heureD=Integer.parseInt(req.getParameter("heureD"));
-		
+
+		int nbPlaces;
+		double prix;
+		int heureD;
+		try{
+		nbPlaces=Integer.parseInt(req.getParameter("nbPlaces"));
+		prix=Double.parseDouble(req.getParameter("prix"));
+		heureD=Integer.parseInt(req.getParameter("heureD"));
+		}catch(NumberFormatException e){
+			nbPlaces=0;
+			prix=0.0;
+			heureD=0;
+		}
+
 		OutilBDD obdd = new OutilBDD();
+		out.println("VILLE DEPART : "+villeD);
 		obdd.ajouterTrajet(login, villeD, villeA, date, heureD, null, nbPlaces, prix);
+		ArrayList<Trajet> liste = obdd.recupererListeTrajets();
+		for(int i=0;i<liste.size();i++){
+			out.println(liste.get(i).getVilleDepart());
+			out.println(liste.get(i).getDateTrajet());
+		}
 	}
 }
