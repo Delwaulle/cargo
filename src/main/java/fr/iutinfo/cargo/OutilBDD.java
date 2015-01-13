@@ -135,16 +135,12 @@ public class OutilBDD {
 	public void ajouterTrajet(Trajet t) {
 		try {
 			this.connect();
-			System.out.println("insert into trajet values (" + t.getIdtrajet()
-					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
+			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('" + t.getIduser() + "','" + t.getVilleDepart() + "','"
 					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
 					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
-					+ t.getNbPlace() + "," + t.getPrix() + ")");
-			stmt.executeUpdate("insert into trajet values (" + t.getIdtrajet()
-					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
-					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
-					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
-					+ t.getNbPlace() + "," + t.getPrix() + ")");
+					+ t.getNbPlace() + "," + t.getPrix() + ")";
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -168,7 +164,7 @@ public class OutilBDD {
 		try {
 			this.connect();
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text);");
-			stmt.executeUpdate("CREATE TABLE trajet(idtrajet serial, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
+			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
