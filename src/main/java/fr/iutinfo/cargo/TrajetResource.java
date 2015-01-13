@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-@Path("/user")
+@Path("/trajet")
 @Produces(MediaType.APPLICATION_JSON)
 public class TrajetResource {
 	private static Map<Integer, Trajet> trajets = new HashMap<>();
