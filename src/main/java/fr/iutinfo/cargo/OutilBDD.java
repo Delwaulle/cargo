@@ -2,46 +2,44 @@ package fr.iutinfo.cargo;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class OutilBDD {
 	private Connection con;
 	private Statement stmt;
 
-	public OutilBDD() {	
+	public OutilBDD() {
 
 	}
-	
-	private void connect(){
+
+	private void connect() {
 		try {
-			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection(
-					"jdbc:postgresql://psqlserv/n3p1", "clavelm", "moi");
+			Class.forName("org.sqlite.JDBC");
+			con = DriverManager.getConnection("jdbc:sqlite:database.db");
 			stmt = con.createStatement();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<Trajet> recupererListeTrajets() {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
-		this.connect();
 		ResultSet rs;
 		try {
+			this.connect();
 			rs = stmt.executeQuery("select * from trajet;");
-			ResultSetMetaData metadata = rs.getMetaData();
 			while (rs.next()) {
-				for (int i = 1; i < metadata.getColumnCount() + 1; i++) {
-					System.out.println(rs.getString(i));
-					// importer la base
-				}
+				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getInt(7), rs.getInt(8),
+						rs.getDouble(9));
+				liste.add(t);
+
 			}
+			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			this.close();
 		}
-		
-		this.close();
-		
 		return (ArrayList<Trajet>) liste;
 	}
 
@@ -51,21 +49,71 @@ public class OutilBDD {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public ArrayList<Trajet> recupererListeTrajets(String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
 			int heureDepart, int heureArrivee, double prix) {
+		ArrayList<Trajet> liste = new ArrayList<Trajet>();
+		ResultSet rs;
+		String where = " ";
+		if (iduser != null) {
+			where += "iduser like %" + iduser + " ";
+		}
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select * from trajet where ");
+			while (rs.next()) {
+				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getInt(7), rs.getInt(8),
+						rs.getDouble(9));
+				liste.add(t);
 
-		return null;
+			}
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return (ArrayList<Trajet>) liste;
+
 	}
 
 	public void ajouterTrajet(Trajet t) {
+		try {
+			this.connect();
+			System.out.println("insert into trajet values (" + t.getIdtrajet()
+					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
+					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
+					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
+					+ t.getNbPlace() + "," + t.getPrix());
+			stmt.executeUpdate("insert into trajet values (" + t.getIdtrajet()
+					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
+					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
+					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
+					+ t.getNbPlace() + "," + t.getPrix());
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+	}
+
+	public void supprimerTrajet(Trajet t) {
 
 	}
-	
-	public void supprimerTrajet(Trajet t) {
-		
+
+	public void creerTables() {
+		try {
+			this.connect();
+			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text);");
+			stmt.executeUpdate("CREATE TABLE trajet(idtrajet serial, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
 	}
 }

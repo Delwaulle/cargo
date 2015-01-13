@@ -7,6 +7,7 @@
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		
+		
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
@@ -18,24 +19,24 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<input type="text" name="trajet" id="trajet" placeholder="Nom ?"/>
+				<input type="text" name="trajet" id="trajet" placeholder="Ville de départ ?"/>
 				<div class="btn-group" role="group">
 					<button id="get" class="btn btn-default">Rechercher</button>
 				</div>
-			</div>
+			<div class="container">
 			<div class="row">
 				<div class="panel panel-info">
-					<div class="panel-heading">Réponse</div>
-	  				<div class="panel-body" id="reponse">
+					<div class="panel-heading">Liste des trajets</div>
+	  				<div class="panel-body" id="">
 	  				</div>
 				</div>
 			</div>	
 		</div>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$("#get").click(function () {getUser($('#user').val())});
-				$("#post").click(function () {postUser($('#user').val())});
-				$("#list").click(function () {listUsers()});
+				$("#get").click(function () {getTrajet($('#trajet').val())});
+				$("#post").click(function () {postTrajet($('#trajet').val())});
+				$("#list").click(function () {listTrajets()});
 			});
   		</script>
 	</body>

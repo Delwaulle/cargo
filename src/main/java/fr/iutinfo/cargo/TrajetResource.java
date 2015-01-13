@@ -20,13 +20,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-@Path("/user")
+@Path("/trajet")
 @Produces(MediaType.APPLICATION_JSON)
 public class TrajetResource {
 	private static Map<Integer, Trajet> trajets = new HashMap<>();
 	
 	@POST
-	public Trajet createUser(Trajet trajet) {
+	public Trajet createTrajet(Trajet trajet) {
 		int id = trajets.size();
 		trajet.setIdtrajet(id+1);
 		trajets.put(trajet.getIdtrajet(), trajet);
@@ -35,7 +35,7 @@ public class TrajetResource {
 	
 	@DELETE
 	@Path("{id}")
-	public Response deleteUser(@PathParam("id") Integer id) {
+	public Response deleteTrajet(@PathParam("id") Integer id) {
 		if (trajets.containsKey(id)) {
 			return Response.accepted().status(Status.ACCEPTED).build();
 		}
@@ -57,7 +57,7 @@ public class TrajetResource {
 	
 	@GET
 	@Path("/{name}")
-	public Trajet getUser(@PathParam("name") String villeDepart ) {
+	public Trajet getTrajet(@PathParam("name") String villeDepart ) {
 		Trajet out = find(villeDepart);
 		if (out == null) {
 			throw new WebApplicationException(404);
@@ -66,7 +66,7 @@ public class TrajetResource {
 	}
 	
 	@GET
-	public List<Trajet> getUsers(@DefaultValue("10") @QueryParam("limit") int limit) {
+	public List<Trajet> getTrajet(@DefaultValue("10") @QueryParam("limit") int limit) {
 		return new ArrayList<Trajet>(trajets.values());
 	}
 
