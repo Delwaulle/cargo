@@ -174,7 +174,9 @@ public class OutilBDD {
 	public void creerTables() {
 		try {
 			this.connect();
+			System.out.println("OOOOKKK1");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text);");
+			System.out.println("OOOOKKK2");
 			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
 			this.close();
 		} catch (SQLException e) {
@@ -182,5 +184,7 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+	
+	
 
 }
