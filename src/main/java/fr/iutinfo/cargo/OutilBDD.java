@@ -153,7 +153,15 @@ public class OutilBDD {
 	}
 
 	public void supprimerTrajet(Trajet t) {
-		// TODO
+		try {
+			this.connect();
+			stmt.executeUpdate("DELETE from trajet where idtrajet="+t.getIdtrajet()+";");
+			this.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			this.close();
+		}		
 	}
 
 	public void creerTables() {
