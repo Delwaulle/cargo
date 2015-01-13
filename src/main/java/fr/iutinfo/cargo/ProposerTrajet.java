@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/servlet/ProposerTrajet")
 public class ProposerTrajet extends HttpServlet{
 	
-	private OutilBDD obdd = new OutilBDD();
 	public void service( HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType( "text/html" );
@@ -50,7 +49,10 @@ public class ProposerTrajet extends HttpServlet{
 			out.println("<BR>");
 			
 			
-			out.println(" <INPUT type=submit value=Valider la proposition>");
+			out.println("Prix : <input type=text name=heureD value=\'\'>");
+			out.println("<BR>");
+			
+			out.println(" <INPUT type=submit value=Suivant>");
 			out.println("</FORM>");
 	}
 	
