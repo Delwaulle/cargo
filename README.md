@@ -1,22 +1,6 @@
 #BDD
-identifiant : clavelm
-mdp : moi
-
-Les tables sont :
-
-cargouser :
-- iduser varchar(20) (PKEY)
-- mdp text
-
-trajet :
-- idtrajet serial
-- iduser varchar(20) (FKEY)
-- villedepart text
-- villearrivee text
-- datetrajet date (AAAA-MM-JJ)
-- hdep int
-- harr int
-- prix float
+CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text);
+CREATE TABLE trajet(idtrajet serial, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));
 
 
 
