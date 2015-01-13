@@ -54,16 +54,67 @@ public class OutilBDD {
 
 	public ArrayList<Trajet> recupererListeTrajets(String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
-			int heureDepart, int heureArrivee, double prix) {
+			int heureDepart, int heureArrivee, int nbPlace, double prix) {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
+		boolean dejaUneCondition = false;
 		if (iduser != null) {
 			where += "iduser like %" + iduser + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if (villeDepart != null) {
+			where += "villedepart like %" + villeDepart + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if (villeArrivee != null) {
+			where += "villearrivee like %" + villeArrivee + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if (dateTrajet != null) {
+			where += "datetrajet like %" + dateTrajet + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if ((Integer) heureDepart != null) {
+			where += "hdep = " + heureDepart + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if ((Integer) heureArrivee != null) {
+			where += "harr = " + heureArrivee + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if ((Integer) nbPlace != null) {
+			where += "nbplace = " + nbPlace + " ";
+			dejaUneCondition = true;
+		}
+		if (dejaUneCondition) {
+			where += "and ";
+		}
+		if ((Double) prix != null) {
+			where += "prix = " + prix + " ";
+			dejaUneCondition = true;
 		}
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from trajet where ");
+			rs = stmt.executeQuery("select * from trajet where "+where);
 			while (rs.next()) {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
@@ -88,12 +139,12 @@ public class OutilBDD {
 					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
 					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
 					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
-					+ t.getNbPlace() + "," + t.getPrix());
+					+ t.getNbPlace() + "," + t.getPrix() + ")");
 			stmt.executeUpdate("insert into trajet values (" + t.getIdtrajet()
 					+ ",'" + t.getIduser() + "','" + t.getVilleDepart() + "','"
 					+ t.getVilleArrivee() + "','" + t.getDateTrajet() + "',"
 					+ t.getHeureDepart() + "," + t.getHeureArrivee() + ","
-					+ t.getNbPlace() + "," + t.getPrix());
+					+ t.getNbPlace() + "," + t.getPrix() + ")");
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,7 +153,7 @@ public class OutilBDD {
 	}
 
 	public void supprimerTrajet(Trajet t) {
-
+		// TODO
 	}
 
 	public void creerTables() {
@@ -116,4 +167,5 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+	
 }
