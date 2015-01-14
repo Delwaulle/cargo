@@ -1,0 +1,9 @@
+* {font-size : 12pt ; font-family : arial ; }
+form {margin-left : auto ; margin-right : auto ; width : 600px ; }
+label,input{display :inline-block ; width : 200px ; height : 30px ; margin : 10px ; }
+button{display :inline-block ; width : 100px ; height : 30px ; margin : 10px; ;margin-right:auto ;text-align:center }
+label {text-align : right ; }
+h2 {height : 30px ; text-align : center ; }
+a{display:block;text-align : center}
+
+					

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>La page d'accueil</title>
+		<meta charset='utf-8'>
+		<link rel="stylesheet" href="index.css" >
+
+	</head>
+
+	<body>
+
+		<header class="entete">
+			<div class="header-containt">
+				<a href="index2.html" class="logo"><img src="logo.jpg" alt="CarGo !"></a>
+				<nav class="site-menu">
+					<ul class="menu-lien">
+						<li class ="menu-btn">
+							<a href="index2.html" class="reche-btn">Rechercher</a>
+							<a href="proposer.html" class="prop-btn">Proposer un trajet</a>
+						</li>
+						<li class="inscription">
+							<a href="creerprofil.html" class="inscription">S'inscrire  </a>
+							<span "pipe"> | </span>
+						</li>
+						<li class="connexion">
+							<a href="login.html" class="connexion">Se connecter </a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		
+		<div class="recherche">
+			<h2>Je recherche une place libre</h2>
+			<FORM METHOD = "POST" ACTION = "servlet/AfficherListe">
+				<input type="text" name="depart" class="depart" placeholder="Depart ?"/>
+				<input type="text" name="arrivee" class="arrive"  placeholder="Arrivee ?"/>
+				<input type="date" name="date" placeholder="Date ?"/>
+				<INPUT type = "submit" value = "Rechercher"/>
+			</FORM>
+
+		</div>
+
+		<div class="image">
+
+			<img src="image.jpg" alt="map">
+
+		</div>
+		
+
+		<footer>
+			<div class="barre-menu-haut">
+				<h3>Infos Pratiques<h3>
+				<h3>A propos<h3>
+				<h3>NewsLetter<h3>
+
+			</div>
+		</footer>
+	</body>
+</html>
+
+
