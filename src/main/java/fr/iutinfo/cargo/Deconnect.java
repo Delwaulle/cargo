@@ -19,9 +19,9 @@ public class Deconnect extends HttpServlet {
 		out.println("<h1>Login :</h1>");
 		
 		try {
-			 HttpSession session = req.getSession(true);
-			 session.invalidate();
-			 res.sendRedirect("Home");
+			HttpSession session = req.getSession(true);
+			session.invalidate();
+			res.sendRedirect("Home");
 		} catch (Exception e) {
 			out.println("Erreur : " + e);
 		}
