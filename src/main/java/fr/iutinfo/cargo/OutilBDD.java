@@ -21,6 +21,7 @@ public class OutilBDD {
 			e.printStackTrace();
 		}
 	}
+
 	public ArrayList<Trajet> recupererListeTrajets() {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
@@ -54,21 +55,22 @@ public class OutilBDD {
 
 	public ArrayList<Trajet> recupererListeTrajets(String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
-			Integer heureDepart, Integer heureArrivee, Integer nbPlace, Double prix) {
+			Integer heureDepart, Integer heureArrivee, Integer nbPlace,
+			Double prix) {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
-		if (iduser != null&& !iduser.equals("")) {
-			where += "iduser like %" + iduser + " and ";
+		if (iduser != null && !iduser.equals("")) {
+			where += "iduser like '" + iduser + "%' and ";
 		}
-		if (villeDepart != null&& !villeDepart.equals("")) {
-			where += "villedepart like %" + villeDepart + " and ";
+		if (villeDepart != null && !villeDepart.equals("")) {
+			where += "villedepart like '" + villeDepart + "%' and ";
 		}
-		if (villeArrivee != null&& !villeArrivee.equals("")) {
-			where += "villearrivee like %" + villeArrivee + " and ";
+		if (villeArrivee != null && !villeArrivee.equals("")) {
+			where += "villearrivee like '" + villeArrivee + "%' and ";
 		}
-		if (dateTrajet != null&& !dateTrajet.equals("")) {
-			where += "datetrajet like %" + dateTrajet + " and ";
+		if (dateTrajet != null && !dateTrajet.equals("")) {
+			where += "datetrajet like '" + dateTrajet + "%' and ";
 		}
 		if (heureDepart != null) {
 			where += "hdep = " + heureDepart + " and ";
@@ -76,7 +78,7 @@ public class OutilBDD {
 		if (heureArrivee != null) {
 			where += "harr = " + heureArrivee + " and ";
 		}
-		if ( nbPlace != null) {
+		if (nbPlace != null) {
 			where += "nbplace = " + nbPlace + " and ";
 		}
 		if (prix != null) {
@@ -85,7 +87,7 @@ public class OutilBDD {
 		try {
 			this.connect();
 			String requete = "select * from trajet where " + where;
-			requete = requete.substring(0, requete.length()-5);
+			requete = requete.substring(0, requete.length() - 5);
 			System.out.println(requete);
 			rs = stmt.executeQuery(requete);
 			while (rs.next()) {
@@ -130,7 +132,7 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-	
+
 	public void supprimerTrajet(Trajet t) {
 		try {
 			this.connect();
@@ -143,11 +145,12 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-	
-	public void ajouterUtilisateur(String iduser, String mdp){
+
+	public void ajouterUtilisateur(String iduser, String mdp) {
 		try {
 			this.connect();
-			String requete = "insert into cargouser(iduser, mdp) values('"+iduser+"','"+mdp+"')s";
+			String requete = "insert into cargouser(iduser, mdp) values('"
+					+ iduser + "','" + mdp + "')s";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -156,12 +159,13 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-	
-	public void ajouterUtilisateur(Utilisateur u, String mdp){
+
+	public void ajouterUtilisateur(Utilisateur u, String mdp) {
 		try {
 			this.connect();
-			String requete = " insert into cargouser values('"+u.getIduser()+"','"+mdp+"','"+u.getNom()+"','"+u.getPrenom()+"','"
-			+u.getNumtel()+"','"+u.getMail()+"')";
+			String requete = " insert into cargouser values('" + u.getIduser()
+					+ "','" + mdp + "','" + u.getNom() + "','" + u.getPrenom()
+					+ "','" + u.getNumtel() + "','" + u.getMail() + "')";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -170,12 +174,11 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-		
-	
+
 	/*---------------------------------------------------------------------------------------*/
-	
-	//ATTENTION, LES MDPs NE SONT PAS RECUPERES !!
-	public List<String> recupererListeNomUtilisateur(){
+
+	// ATTENTION, LES MDPs NE SONT PAS RECUPERES !!
+	public List<String> recupererListeNomUtilisateur() {
 		List<String> liste = new ArrayList<String>();
 		ResultSet rs;
 		try {
@@ -192,15 +195,19 @@ public class OutilBDD {
 		}
 		return liste;
 	}
-	//ATTENTION, LES MDPs NE SONT PAS RECUPERES !!
+
+	// ATTENTION, LES MDPs NE SONT PAS RECUPERES !!
 	public ArrayList<Utilisateur> recupererListeUtilisateur() {
 		ArrayList<Utilisateur> liste = new ArrayList<Utilisateur>();
 		ResultSet rs;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser;");
+			rs = stmt
+					.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser;");
 			while (rs.next()) {
-				Utilisateur u = new Utilisateur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5));
+				Utilisateur u = new Utilisateur(rs.getString(1),
+						rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5));
 				liste.add(u);
 
 			}
@@ -211,14 +218,17 @@ public class OutilBDD {
 		}
 		return (ArrayList<Utilisateur>) liste;
 	}
-	
-	public Utilisateur recupererUtilisateur(Integer idUser) {
+
+	public Utilisateur recupererUtilisateur(String idUser) {
 		ResultSet rs;
 		Utilisateur u = null;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser where = iduser = '"+ idUser + "';");
-			u = new Utilisateur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5));
+			rs = stmt
+					.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser where = iduser = '"
+							+ idUser + "';");
+			u = new Utilisateur(rs.getString(1), rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5));
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -227,63 +237,66 @@ public class OutilBDD {
 		return u;
 	}
 
-	public void updateProfil(String iduser,String nom, String prenom, String numtel, String mail){
+	public void updateProfil(String iduser, String nom, String prenom,
+			String numtel, String mail) {
 		boolean argumentNonNUll = false;
 		String requete = "set ";
-		if(nom !=null){
-			requete+="nom = '"+nom+"'";
-			argumentNonNUll=true;
+		if (nom != null) {
+			requete += "nom = '" + nom + "'";
+			argumentNonNUll = true;
 		}
-		if(argumentNonNUll){
-			requete+= ",";
-			argumentNonNUll=false;
+		if (argumentNonNUll) {
+			requete += ",";
+			argumentNonNUll = false;
 		}
-		if(prenom !=null){
-			requete+="prenom = '"+prenom+"'";
-			argumentNonNUll=true;
+		if (prenom != null) {
+			requete += "prenom = '" + prenom + "'";
+			argumentNonNUll = true;
 		}
-		if(argumentNonNUll){
-			requete+= ",";
-			argumentNonNUll=false;
+		if (argumentNonNUll) {
+			requete += ",";
+			argumentNonNUll = false;
 		}
-		if(numtel !=null){
-			requete+="numtel = '"+numtel+"'";
-			argumentNonNUll=true;
+		if (numtel != null) {
+			requete += "numtel = '" + numtel + "'";
+			argumentNonNUll = true;
 		}
-		if(argumentNonNUll){
-			requete+= ",";
-			argumentNonNUll=false;
+		if (argumentNonNUll) {
+			requete += ",";
+			argumentNonNUll = false;
 		}
-		if(mail !=null){
-			requete+="mail = '"+mail+"'";
-			argumentNonNUll=true;
+		if (mail != null) {
+			requete += "mail = '" + mail + "'";
+			argumentNonNUll = true;
 		}
-		if(argumentNonNUll){
-			requete+= ",";
-			argumentNonNUll=false;
+		if (argumentNonNUll) {
+			requete += ",";
+			argumentNonNUll = false;
 		}
-		
+
 	}
-	
+
 	/*---------------------------------------------------------------------------------------*/
-	
+
 	public void creerTables() {
 		try {
 			this.connect();
 
+			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER,foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
-
 			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
+
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			this.close();
 		}
 	}
-	public void supprimerToutesLesTables(){
+
+	public void supprimerToutesLesTables() {
 		try {
 			this.connect();
-
+			stmt.executeUpdate("DROP TABLE relation");
 			stmt.executeUpdate("DROP TABLE cargouser;");
 
 			stmt.executeUpdate("DROP TABLE trajet;");
@@ -293,10 +306,15 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-public static void main(String[] args) {
-	OutilBDD o = new OutilBDD();
-	o.supprimerToutesLesTables();
-	o.creerTables();
-}
+	public void remettreAZeroLaBDD(){
+		supprimerToutesLesTables();
+		creerTables();
+		System.out.println("Database reinitialisee");
+	}
+
+	public static void main(String[] args) {
+		new OutilBDD().remettreAZeroLaBDD();
+		
+	}
 
 }
