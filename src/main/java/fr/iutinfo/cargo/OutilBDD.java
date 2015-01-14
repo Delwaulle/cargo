@@ -198,7 +198,7 @@ public class OutilBDD {
 		return (ArrayList<Utilisateur>) liste;
 	}
 	
-	public Utilisateur recupererUtilisateur(Integer idUser) {
+	public Utilisateur recupererUtilisateur(String idUser) {
 		ResultSet rs;
 		Utilisateur u = null;
 		try {
