@@ -37,6 +37,7 @@ public class PosterProposition extends HttpServlet {
 			prix = Double.parseDouble(req.getParameter("prix"));
 			heureD = Integer.parseInt(req.getParameter("heureD"));
 		} catch (NumberFormatException e) {
+			System.out.println("catch");
 			nbPlaces = 0;
 			prix = 0.0;
 			heureD = 0;

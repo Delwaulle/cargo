@@ -50,7 +50,7 @@ public class ValiderProposition extends HttpServlet {
 		out.println("<input type =hidden name=nbPlaces value=" + nbPlaces + ">");
 		out.println("<input type =hidden name=heureD value=" + heureD + ">");
 
-		out.println("<input type=hidden name=prix value=" + prix + "v>");
+		out.println("<input type=hidden name=prix value=" + prix + ">");
 		out.println("<INPUT type=submit value=Poster la proposition>");
 		out.println("</FORM>");
 	}
