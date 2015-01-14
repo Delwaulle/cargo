@@ -291,6 +291,10 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-
+public static void main(String[] args) {
+	OutilBDD o = new OutilBDD();
+	o.supprimerToutesLesTables();
+	o.creerTables();
+}
 
 }
