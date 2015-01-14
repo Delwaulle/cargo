@@ -156,6 +156,20 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+	
+	public void ajouterUtilisateur(Utilisateur u, String mdp){
+		try {
+			this.connect();
+			String requete = " insert into cargouser values('"+u.getIduser()+"','"+mdp+"','"+u.getNom()+"','"+u.getPrenom()+"','"
+			+u.getNumtel()+"','"+u.getMail()+"')";
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+	}
 		
 	
 	/*---------------------------------------------------------------------------------------*/
@@ -198,7 +212,7 @@ public class OutilBDD {
 		return (ArrayList<Utilisateur>) liste;
 	}
 	
-	public Utilisateur recupererUtilisateur(String idUser) {
+	public Utilisateur recupererUtilisateur(Integer idUser) {
 		ResultSet rs;
 		Utilisateur u = null;
 		try {
