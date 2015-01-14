@@ -43,6 +43,8 @@ public class ProposerTrajet extends HttpServlet {
 
 		out.println("Prix : <input type=text name=prix value=>");
 		out.println("<BR>");
+		out.println("Voiture : <input type=text name=voiture value=>");
+		out.println("<BR>");
 
 		out.println(" <INPUT type=submit value=Suivant>");
 		out.println("</FORM>");
