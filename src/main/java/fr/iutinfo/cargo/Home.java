@@ -4,8 +4,8 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.sql.*;
 
+@SuppressWarnings("serial")
 @WebServlet("/servlet/Home")
 public class Home extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -54,7 +54,7 @@ public class Home extends HttpServlet {
 		out.println("</div>");
 		out.println("</header>");
 		out.println("<div class=\"recherche\">");
-		out.println("<h2>Je recherche une place libre</h2>");
+		out.println("<h2>Je cherche une place libre</h2>");
 		out.println("<FORM METHOD = \"POST\" ACTION = \"servlet/AfficherListe\">");
 		out.println("<input type=\"text\" name=\"depart\" class=\"depart\" placeholder=\"Depart ?\"/>");
 		out.println("<input type=\"text\" name=\"arrivee\" class=\"arrive\"  placeholder=\"Arrivee ?\"/>");
