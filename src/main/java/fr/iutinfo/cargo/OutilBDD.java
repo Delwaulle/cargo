@@ -197,6 +197,21 @@ public class OutilBDD {
 		}
 		return (ArrayList<Utilisateur>) liste;
 	}
+	
+	public Utilisateur recupererUtilisateur(Integer idUser) {
+		ResultSet rs;
+		Utilisateur u = null;
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser where = iduser = '"+ idUser + "';");
+			u = new Utilisateur(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5));
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return u;
+	}
 
 	public void updateProfil(String iduser,String nom, String prenom, String numtel, String mail){
 		boolean argumentNonNUll = false;
