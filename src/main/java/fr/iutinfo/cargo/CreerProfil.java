@@ -30,7 +30,7 @@ public class CreerProfil extends HttpServlet {
 		out.println("<font color=\"DARKRED\">Créons votre profil</font>");
 		out.println("<FORM METHOD=\"POST\" ACTION=\"servlet/CreerProfil2\">");
 		out.println("Nom :");
-		out.println("<INPUT type=\"text\" value=\"\"name=\"nom\">");
+		out.println("<INPUT type=\"text\" value=\"\"name=\"nom\" autofocus>");
 		out.println("<br/>");
 		out.println("Prénom :");
 		out.println("<INPUT type=\"text\" value=\"\" name=\"prenom\">");
