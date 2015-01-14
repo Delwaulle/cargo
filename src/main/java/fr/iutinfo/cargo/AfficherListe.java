@@ -58,12 +58,6 @@ public class AfficherListe extends HttpServlet {
 	    	out.println("</tr>");
 	    }
 	    out.println("</table>");
-	    
-		out.println("");
-		out.println("<br/><a href='Menu'>Retour</a>");
 		out.println("</center></body><html>");
-		
-		
-		
 	}
 }
