@@ -28,7 +28,7 @@ public class PosterProposition extends HttpServlet {
 		String villeA = req.getParameter("villeA");
 		String date = req.getParameter("date");
 		String heureA = req.getParameter("villeD");
-
+		String voiture = req.getParameter("voiture");
 		int nbPlaces;
 		double prix;
 		int heureD;
@@ -46,7 +46,7 @@ public class PosterProposition extends HttpServlet {
 		OutilBDD obdd = new OutilBDD();
 		out.println("VILLE DEPART : " + villeD);
 		obdd.ajouterTrajet(login, villeD, villeA, date, heureD, null, nbPlaces,
-				prix);
+				prix,voiture);
 		ArrayList<Trajet> liste = obdd.recupererListeTrajets();
 		for (int i = 0; i < liste.size(); i++) {
 			out.println(liste.get(i).getVilleDepart());

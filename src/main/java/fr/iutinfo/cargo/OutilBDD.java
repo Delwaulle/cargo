@@ -32,7 +32,7 @@ public class OutilBDD {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7), rs.getInt(8),
-						rs.getDouble(9));
+						rs.getDouble(9), rs.getString(10));
 				liste.add(t);
 
 			}
@@ -94,7 +94,7 @@ public class OutilBDD {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7), rs.getInt(8),
-						rs.getDouble(9));
+						rs.getDouble(9), rs.getString(10));
 				liste.add(t);
 
 			}
@@ -109,10 +109,10 @@ public class OutilBDD {
 
 	public void ajouterTrajet(String iduser, String villeDepart,
 			String villeArrivee, String dateTrajet, Integer heureDepart,
-			Integer heureArrivee, Integer nbPlace, Double prix) {
+			Integer heureArrivee, Integer nbPlace, Double prix, String voiture) {
 		try {
 			this.connect();
-			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('"
+			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix, voiture) values ('"
 					+ iduser
 					+ "','"
 					+ villeDepart
@@ -123,7 +123,14 @@ public class OutilBDD {
 					+ "',"
 					+ heureDepart
 					+ ","
-					+ heureArrivee + "," + nbPlace + "," + prix + ")";
+					+ heureArrivee
+					+ ","
+					+ nbPlace
+					+ ","
+					+ prix
+					+ ",'"
+					+ voiture
+					+ "')";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -284,7 +291,7 @@ public class OutilBDD {
 
 			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER,foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
-			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
+			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,voiture text,foreign key (iduser) references cargouser(iduser));");
 
 			this.close();
 		} catch (SQLException e) {
@@ -298,7 +305,6 @@ public class OutilBDD {
 			this.connect();
 			stmt.executeUpdate("DROP TABLE relation");
 			stmt.executeUpdate("DROP TABLE cargouser;");
-
 			stmt.executeUpdate("DROP TABLE trajet;");
 			this.close();
 		} catch (SQLException e) {
@@ -306,7 +312,8 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-	public void remettreAZeroLaBDD(){
+
+	public void remettreAZeroLaBDD() {
 		supprimerToutesLesTables();
 		creerTables();
 		System.out.println("Database reinitialisee");
@@ -314,7 +321,7 @@ public class OutilBDD {
 
 	public static void main(String[] args) {
 		new OutilBDD().remettreAZeroLaBDD();
-		
+
 	}
 
 }
