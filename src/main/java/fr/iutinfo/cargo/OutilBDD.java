@@ -58,63 +58,36 @@ public class OutilBDD {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
-		boolean dejaUneCondition = false;
-		if (iduser != null) {
-			where += "iduser like %" + iduser + " ";
-			dejaUneCondition = true;
+		if (iduser != null&& !iduser.equals("")) {
+			where += "iduser like %" + iduser + " and ";
 		}
-		if (dejaUneCondition) {
-			where += "and ";
+		if (villeDepart != null&& !villeDepart.equals("")) {
+			where += "villedepart like %" + villeDepart + " and ";
 		}
-		if (villeDepart != null) {
-			where += "villedepart like %" + villeDepart + " ";
-			dejaUneCondition = true;
+		if (villeArrivee != null&& !villeArrivee.equals("")) {
+			where += "villearrivee like %" + villeArrivee + " and ";
 		}
-		if (dejaUneCondition) {
-			where += "and ";
-		}
-		if (villeArrivee != null) {
-			where += "villearrivee like %" + villeArrivee + " ";
-			dejaUneCondition = true;
-		}
-		if (dejaUneCondition) {
-			where += "and ";
-		}
-		if (dateTrajet != null) {
-			where += "datetrajet like %" + dateTrajet + " ";
-			dejaUneCondition = true;
-		}
-		if (dejaUneCondition) {
-			where += "and ";
+		if (dateTrajet != null&& !dateTrajet.equals("")) {
+			where += "datetrajet like %" + dateTrajet + " and ";
 		}
 		if (heureDepart != null) {
-			where += "hdep = " + heureDepart + " ";
-			dejaUneCondition = true;
-		}
-		if (dejaUneCondition) {
-			where += "and ";
+			where += "hdep = " + heureDepart + " and ";
 		}
 		if (heureArrivee != null) {
-			where += "harr = " + heureArrivee + " ";
-			dejaUneCondition = true;
-		}
-		if (dejaUneCondition) {
-			where += "and ";
+			where += "harr = " + heureArrivee + " and ";
 		}
 		if ( nbPlace != null) {
-			where += "nbplace = " + nbPlace + " ";
-			dejaUneCondition = true;
-		}
-		if (dejaUneCondition) {
-			where += "and ";
+			where += "nbplace = " + nbPlace + " and ";
 		}
 		if (prix != null) {
-			where += "prix = " + prix + " ";
-			dejaUneCondition = true;
+			where += "prix = " + prix + " and ";
 		}
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from trajet where " + where);
+			String requete = "select * from trajet where " + where;
+			requete = requete.substring(0, requete.length()-5);
+			System.out.println(requete);
+			rs = stmt.executeQuery(requete);
 			while (rs.next()) {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),

@@ -49,6 +49,7 @@ public class PosterProposition extends HttpServlet {
 		ArrayList<Trajet> liste = obdd.recupererListeTrajets();
 		for (int i = 0; i < liste.size(); i++) {
 			out.println(liste.get(i).getVilleDepart());
+			out.println(liste.get(i).getVilleArrivee());
 			out.println(liste.get(i).getDateTrajet());
 		}
 	}

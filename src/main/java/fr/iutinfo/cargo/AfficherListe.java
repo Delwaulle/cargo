@@ -26,6 +26,7 @@ public class AfficherListe extends HttpServlet {
 		String depart = req.getParameter("depart");
 		String arrivee = req.getParameter("arrivee");
 		String date = req.getParameter("date");
+		out.print(depart +" '"+arrivee+"' '"+date+"'");
 		db.creerTables();
 		liste = db.recupererListeTrajets(null, depart, arrivee, date, null, null, null, null);
 
@@ -53,7 +54,7 @@ public class AfficherListe extends HttpServlet {
 	    	out.println("<td>" + liste.get(i).getHeureDepart() + "</td>");
 	    	out.println("<td>" + liste.get(i).getHeureArrivee() + "</td>");
 	    	out.println("<td>" + liste.get(i).getPrix() + "</td>");
-	    	out.println("<td><FORM METHOD = \"POST\" ACTION = \"servlet/DetailsTrajet\">");
+	    	out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+liste.get(i).getIduser() + "\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");

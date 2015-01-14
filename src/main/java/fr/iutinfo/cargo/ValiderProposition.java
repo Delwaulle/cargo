@@ -23,6 +23,7 @@ public class ValiderProposition extends HttpServlet {
 		 */
 
 		String villeD = req.getParameter("villeD");
+		System.out.println(req.getParameter("villeD"));
 		String villeA = req.getParameter("villeA");
 		String date = req.getParameter("date");
 		String nbPlaces = req.getParameter("nbPlaces");
@@ -38,7 +39,7 @@ public class ValiderProposition extends HttpServlet {
 				+ "</td><td>" + villeA + "</td><td>" + date + "</td><td>"
 				+ heureD + "</td><td>" + nbPlaces + "</td><td>" + prix
 				+ "</td></tr><tr><td>");
-		out.println("<FORM method=get action=../servlet/PosterProposition");
+		out.println("<FORM method=get action=../servlet/PosterProposition>");
 		
 		out.println("<input type =hidden name=villeD value=" + villeD + ">");
 
