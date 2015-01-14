@@ -42,7 +42,6 @@ public class AfficherListe extends HttpServlet {
 	    out.print("<th>heure depart</TH>");
 	    out.print("<th>heure arrivée</TH>");
 	    out.print("<th>nombre de places :</th>");
-	    out.print("<th></th>");
 	    out.print("<th>Prix :</TH>");
 	    out.println("</tr>");
 	    for(int i = 0; i < liste.size(); i++){
@@ -54,10 +53,20 @@ public class AfficherListe extends HttpServlet {
 	    	out.println("<td>" + liste.get(i).getHeureDepart() + "</td>");
 	    	out.println("<td>" + liste.get(i).getHeureArrivee() + "</td>");
 	    	out.println("<td>" + liste.get(i).getPrix() + "</td>");
-	    	out.println("<td><FORM METHOD = \"POST\" ACTION = \"servlet/Verification\"><INPUT type = \"submit\" value = \"Envoyer\"</td>");
+	    	out.println("<td><FORM METHOD = \"POST\" ACTION = \"servlet/DetailsTrajet\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+liste.get(i).getIduser() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"date\" value =\""+liste.get(i).getDateTrajet() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"heureDepart\" value =\""+liste.get(i).getHeureDepart() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"heureArrivee\" value =\""+liste.get(i).getHeureArrivee() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""+liste.get(i).getNbPlace() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
+	    	out.println("<INPUT type = \"submit\" value = \"Envoyer\"</td>");
 	    	out.println("</tr>");
 	    }
 	    out.println("</table>");
 		out.println("</center></body><html>");
+		
 	}
 }
