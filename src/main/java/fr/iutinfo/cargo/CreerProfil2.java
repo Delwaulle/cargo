@@ -16,13 +16,9 @@ public class CreerProfil2 extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
-		
-		
 		Utilisateur u = new Utilisateur(req.getParameter("login"), req.getParameter("nom"),req.getParameter("prenom"),req.getParameter("numTel"),req.getParameter("mail"));
 		OutilBDD o = new OutilBDD();
 		o.ajouterUtilisateur(u, req.getParameter("mdp"));
-
-
-
+		res.sendRedirect("../login.html");
 	}
 }
