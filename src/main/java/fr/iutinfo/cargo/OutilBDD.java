@@ -154,11 +154,11 @@ public class OutilBDD {
 	}
 
 	public ArrayList<Reservation> recupererReservations(String iduser) {
-		List<Reservation> listeResas = new ArrayList<>();
+		ArrayList<Reservation> listeResas = new ArrayList<Reservation>();
 		ResultSet rs;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from relations;");
+			rs = stmt.executeQuery("select * from relation where iduser = '"+iduser+"';");
 			while (rs.next()) {
 				listeResas.add(new Reservation(rs.getString(1), rs.getInt(2),
 						rs.getInt(3)));
@@ -168,7 +168,24 @@ public class OutilBDD {
 			e.printStackTrace();
 			this.close();
 		}
-		return (ArrayList<Reservation>) listeResas;
+		return listeResas;
+	}
+	public ArrayList<Reservation> recupererReservations(String iduser,Integer accepte) {
+		ArrayList<Reservation> liste = new ArrayList<Reservation>();
+		ResultSet rs;
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select * from relation where iduser ='"+iduser+"' and accepte = "+accepte+";");
+			while (rs.next()) {
+				liste.add(new Reservation(rs.getString(1), rs.getInt(2),
+						rs.getInt(3)));
+			}
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return liste;
 	}
 
 	public boolean ajouterTrajet(String iduser, String villeDepart,
