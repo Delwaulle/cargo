@@ -26,7 +26,7 @@ public class ListerAvis  extends HttpServlet{
 			res.sendRedirect("../login.html");
 		}
 		OutilBDD obdd=new OutilBDD();
-		ArrayList<String>  avis=obdd.recupererAvis(login);
+		//ArrayList<String>  avis=obdd.recupererAvis(login);
 		ArrayList<String> avisTronc=new ArrayList<String>();
 		out.println("<html>");
 		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet> <link href=../avis.css type=text/css rel=stylesheet>  <Title> Avis </Title></head>");
@@ -38,14 +38,14 @@ public class ListerAvis  extends HttpServlet{
 		out.println("</tr></thead>");
 		
 		out.println("<tbody class=zebra-striped>");
-		for(int i=0;i<avis.size();i++){
+		/*for(int i=0;i<avis.size();i++){
 			for(int j=0;j<avis.get(i).length();j++){
 				if(j%20==0){
 					avisTronc.add("<br>"+avis.get(i));
 				}else 
 					avisTronc.add(avis.get(i));
 			}
-		}
+		}*/
 		for(int i=0;i<4;i++){
 			out.println("<tr>");
 			out.println("<td>"+i+"</td>");

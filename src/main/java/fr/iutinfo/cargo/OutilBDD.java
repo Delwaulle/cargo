@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+@SuppressWarnings("finally")
 public class OutilBDD {
 	private Connection con;
 	private Statement stmt;
+	private boolean booleen;
 
 	public OutilBDD() {
 
@@ -115,10 +117,9 @@ public class OutilBDD {
 		try {
 			this.connect();
 			rs = stmt.executeQuery("select * from trajet;");
-			trajet = new Trajet(rs.getInt(1), rs.getString(2),
-					rs.getString(3), rs.getString(4), rs.getString(5),
-					rs.getInt(6), rs.getInt(7), rs.getInt(8),
-					rs.getDouble(9));
+			trajet = new Trajet(rs.getInt(1), rs.getString(2), rs.getString(3),
+					rs.getString(4), rs.getString(5), rs.getInt(6),
+					rs.getInt(7), rs.getInt(8), rs.getDouble(9));
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -128,19 +129,27 @@ public class OutilBDD {
 		}
 	}
 
-	public void reserverTrajet(String iduser, Integer idtrajet) {
+	public boolean reserverTrajet(String iduser, Integer idtrajet) {
+		booleen = true;
 		try {
 			this.connect();
 			String requete = "insert into relation values ('" + iduser + "',"
 					+ idtrajet + ",0)";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
-			JOptionPane.showMessageDialog(null,"Votre réservation a été soumise\n au conducteur","Succès", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,
+					"Votre réservation a été soumise\n au conducteur",
+					"Succès", JOptionPane.INFORMATION_MESSAGE);
 			this.close();
 		} catch (SQLException e) {
+			booleen = false;
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"Echec de la réservation","Attention", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Echec de la réservation",
+					"Attention", JOptionPane.ERROR_MESSAGE);
 			this.close();
+
+		} finally {
+			return booleen;
 		}
 	}
 
@@ -162,9 +171,10 @@ public class OutilBDD {
 		return (ArrayList<Reservation>) listeResas;
 	}
 
-	public void ajouterTrajet(String iduser, String villeDepart,
+	public boolean ajouterTrajet(String iduser, String villeDepart,
 			String villeArrivee, String dateTrajet, Integer heureDepart,
 			Integer heureArrivee, Integer nbPlace, Double prix, String voiture) {
+		booleen = true;
 		try {
 			this.connect();
 			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('"
@@ -181,29 +191,39 @@ public class OutilBDD {
 					+ heureArrivee + "," + nbPlace + "," + prix + ")";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
-			JOptionPane.showMessageDialog(null,"Le trajet a été posté","Succès", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Le trajet a été posté",
+					"Succès", JOptionPane.INFORMATION_MESSAGE);
 			this.close();
 		} catch (SQLException e) {
+			booleen = false;
 			e.printStackTrace();
-		JOptionPane.showMessageDialog(null,"Echec de l'ajout du trajet","Attention", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Echec de l'ajout du trajet",
+					"Attention", JOptionPane.ERROR_MESSAGE);
 			this.close();
+		} finally {
+			return booleen;
 		}
 	}
 
-	public void supprimerTrajet(Trajet t) {
+	public boolean supprimerTrajet(Trajet t) {
+		booleen = true;
 		try {
 			this.connect();
 			stmt.executeUpdate("DELETE from trajet where idtrajet="
 					+ t.getIdtrajet() + ";");
 			this.close();
 		} catch (Exception e) {
-
+			booleen = false;
 			e.printStackTrace();
 			this.close();
+		} finally {
+			return booleen;
 		}
+
 	}
 
-	public void ajouterUtilisateur(String iduser, String mdp) {
+	public boolean ajouterUtilisateur(String iduser, String mdp) {
+		booleen = true;
 		try {
 			this.connect();
 			String requete = "insert into cargouser(iduser, mdp) values('"
@@ -212,12 +232,16 @@ public class OutilBDD {
 			stmt.executeUpdate(requete);
 			this.close();
 		} catch (SQLException e) {
+			booleen = false;
 			e.printStackTrace();
 			this.close();
+		} finally {
+			return booleen;
 		}
 	}
 
-	public void ajouterUtilisateur(Utilisateur u, String mdp) {
+	public boolean ajouterUtilisateur(Utilisateur u, String mdp) {
+		booleen = true;
 		try {
 			this.connect();
 			String requete = " insert into cargouser values('" + u.getIduser()
@@ -227,8 +251,11 @@ public class OutilBDD {
 			stmt.executeUpdate(requete);
 			this.close();
 		} catch (SQLException e) {
+			booleen = false;
 			e.printStackTrace();
 			this.close();
+		} finally {
+			return booleen;
 		}
 	}
 
@@ -294,8 +321,9 @@ public class OutilBDD {
 		return u;
 	}
 
-	public void updateProfil(String nom, String prenom, String numtel,
+	public boolean updateProfil(String nom, String prenom, String numtel,
 			String mail) {
+		booleen = true;
 		try {
 			this.connect();
 
@@ -337,22 +365,26 @@ public class OutilBDD {
 			stmt.executeUpdate(requete);
 			this.close();
 		} catch (SQLException e) {
+			booleen = false;
 			e.printStackTrace();
 			this.close();
+		} finally {
+			return booleen;
 		}
 
 	}
 
 	/*---------------------------------------------------------------------------------------*/
-	public ArrayList<String> recupererAvis(String iduser) {
-		ArrayList<String> liste = new ArrayList<String>();
+	public ArrayList<Avis> recupererAvis(String conducteur) {
+		ArrayList<Avis> liste = new ArrayList<Avis>();
 		ResultSet rs;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from avis where iduser ='"
-					+ iduser + "' ;");
+			rs = stmt.executeQuery("select * from avis where conducteur ='"
+					+ conducteur + "' ;");
 			while (rs.next()) {
-				liste.add(rs.getString("avis"));
+				Avis avis = new Avis(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4), rs.getInt(5));
+				liste.add(avis);
 			}
 			this.close();
 		} catch (SQLException e) {
@@ -362,17 +394,28 @@ public class OutilBDD {
 		return liste;
 	}
 
-	public void ajouterAvis(String iduser, String avis) {
+	public boolean ajouterAvis(String conducteur, String passager, String avis,
+			Integer note) {
+		booleen = true;
 		try {
 			this.connect();
-			String requete = "insert into relation (iduser,avis) values ('"
-					+ iduser + "','" + avis + "')";
+			String requete = "insert into relation (conducteur,passager,avis,note) values ('"
+					+ conducteur
+					+ "','"
+					+ passager
+					+ "','"
+					+ avis
+					+ "',"
+					+ note + ")";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
 		} catch (SQLException e) {
+			booleen = false;
 			e.printStackTrace();
 			this.close();
+		} finally {
+			return booleen;
 		}
 	}
 
@@ -383,7 +426,7 @@ public class OutilBDD {
 			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
 			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
-			stmt.executeUpdate("CREATE TABLE avis(idavis INTEGER PRIMARY KEY AUTOINCREMENT,iduser varchar(20),avis text,foreign key (iduser) references cargouser(iduser));");
+			stmt.executeUpdate("CREATE TABLE avis(idavis INTEGER PRIMARY KEY AUTOINCREMENT,conducteur varchar(20),passager varchar(20),avis text,note integer,foreign key (conducteur) references cargouser(iduser),foreign key (passager) references cargouser(iduser));");
 
 			this.close();
 		} catch (SQLException e) {
@@ -414,7 +457,5 @@ public class OutilBDD {
 
 	public static void main(String[] args) {
 		new OutilBDD().remettreAZeroLaBDD();
-
 	}
-
 }
