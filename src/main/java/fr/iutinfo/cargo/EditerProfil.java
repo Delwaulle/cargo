@@ -24,7 +24,7 @@ public class EditerProfil {
 		out.println("<FORM METHOD='get' ACTION='EditerProfil2'>");
 		out.println("<table border='3'>");
 		
-		out.print("<tr><TH>login</TH><TH>mdp</TH><TH>nom</TH><TH>prenom</TH><TH>adresse</TH>");
+		out.print("<tr><TH>nom</TH><TH>prenom</TH><TH>telephone</TH><TH>mail</TH>");
 		out.println("</tr>");
 		
 		out.println("<TR>");
