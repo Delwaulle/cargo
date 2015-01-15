@@ -101,6 +101,7 @@ public class AfficherListe extends HttpServlet {
 		for (int i = 0; i < liste.size(); i++) {
 			out.println("<tr>");
 			out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
+			out.println("<INPUT type = \"hidden\" name =\"idcond\" value =\""+liste.get(i).getIduser() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
 			out.println("<td>" + liste.get(i).getVilleDepart() + "</td>");
 			out.println("<td>" + liste.get(i).getVilleArrivee() + "</td>");
