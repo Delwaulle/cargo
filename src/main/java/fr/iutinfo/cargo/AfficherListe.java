@@ -29,7 +29,6 @@ public class AfficherListe extends HttpServlet {
 		String depart = req.getParameter("depart");
 		String arrivee = req.getParameter("arrivee");
 		String date = req.getParameter("date");
-		out.print(depart + " '" + arrivee + "' '" + date + "'");
 		liste = db.recupererListeTrajets(null, depart, arrivee, date, null,
 				null, null, null);
 		out.println("</head><body>");
