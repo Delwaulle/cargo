@@ -7,6 +7,7 @@ import javax.servlet.annotation.*;
 import java.sql.*;
 
 
+@SuppressWarnings("serial")
 @WebServlet("/servlet/Authentification")
 public class Authentification extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -21,10 +22,9 @@ public class Authentification extends HttpServlet {
 		try {
 		  Class.forName("org.sqlite.JDBC");
 		  Connection con = DriverManager.getConnection("jdbc:sqlite:database.db");
-		  Statement stmt = con.createStatement();
 		  PreparedStatement ps =con.prepareStatement("SELECT * FROM cargouser WHERE iduser=? and mdp=?");
 		  ps.setString(1,req.getParameter("login"));
-		  ps.setString(2,req.getParameter("password"));
+		  ps.setString(2,req.getParameter("mdp"));
 		  ResultSet rs = ps.executeQuery();
 		  if(rs.next()) {
 		      HttpSession session = req.getSession(true);
