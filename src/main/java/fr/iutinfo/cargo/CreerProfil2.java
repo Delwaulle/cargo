@@ -22,12 +22,10 @@ public class CreerProfil2 extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 
-		HttpSession s = req.getSession(true);
-
-		String login = req.getParameter("identifiant");
-
 		boolean valide = true;
-
+		
+		boolean idValide = true;
+		String login = req.getParameter("identifiant");
 		try {
 			Class.forName("org.sqlite.JDBC");
 			Connection con = DriverManager
@@ -38,8 +36,7 @@ public class CreerProfil2 extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				con.close();
-				out.println("Login déjà utilisé.<br/>");
-				s.setAttribute("erreurLogin", true);
+				idValide = false;
 				valide = false;
 			} else {
 				con.close();
@@ -60,11 +57,8 @@ public class CreerProfil2 extends HttpServlet {
 				numValide = false;
 			}
 		}
-		if (!numValide) {
-			out.println("Numéro de téléphone invalide.</br>");
-			s.setAttribute("erreurNum", true);
-		}
 
+		boolean adresseValide = true;
 		String mail = req.getParameter("adresse");
 		int at = 0;
 		for (int i = 0; i < mail.length(); i++) {
@@ -72,8 +66,7 @@ public class CreerProfil2 extends HttpServlet {
 				at++;
 		}
 		if (at != 1) {
-			out.println("Adresse mail invalide.</br>");
-			s.setAttribute("erreurAdresse", true);
+			adresseValide = false;
 		}
 
 		if (valide) {
@@ -82,8 +75,18 @@ public class CreerProfil2 extends HttpServlet {
 			o.ajouterUtilisateur(u, req.getParameter("password"));
 			res.sendRedirect("../login.html");
 		} else {
-			s.setAttribute("erreur", true);
-			res.sendRedirect("CreerProfil");
+			out.println("<center>");
+			out.println("<h4>Veuillez corriger la (les) erreur(s) suivante(s) :</h4>");
+			out.println("<table border=1 color=#FF0000>");
+			if (!idValide)
+				out.println("<tr><td>Login déjà utilisé.</td></tr>");
+			if (!numValide)
+				out.println("<tr><td>Numéro de téléphone invalide.</td></tr>");
+			if (!adresseValide)
+				out.println("<tr><td>Adresse mail invalide.</td></tr>");
+			out.println("</table><br/>");
+			out.println("<a href=\"../inscription.html\">Retour</a>");
+			out.println("</center>");
 		}
 	}
 }
