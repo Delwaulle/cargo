@@ -28,10 +28,10 @@ public class EditerProfil {
 		out.println("</tr>");
 		
 		out.println("<TR>");
-		out.print("<TD><INPUT type='text' value='"+u.nom+"' name=nom></TD>");
-		out.print("<TD><INPUT type='text' value='"+u.prenom+"' name=prenom></TD>");
-		out.print("<TD><INPUT type='text' value='"+u.numtel+"' name=numtel></TD>");
-		out.print("<TD><INPUT type='text' value='"+u.mail+"' name=mail></TD>");
+		out.print("<TD><INPUT type='text' value='"+u.getNom()+"' name=nom></TD>");
+		out.print("<TD><INPUT type='text' value='"+u.getPrenom()+"' name=prenom></TD>");
+		out.print("<TD><INPUT type='text' value='"+u.getNumtel()+"' name=numtel></TD>");
+		out.print("<TD><INPUT type='text' value='"+u.getMail()+"' name=mail></TD>");
 		out.println("</TR>");
 		
 		out.println("</table><INPUT type='submit' value='Mettre a jour'></FORM></center></body>");
