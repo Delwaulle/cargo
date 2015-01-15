@@ -24,7 +24,7 @@ public class Authentification extends HttpServlet {
 		  Statement stmt = con.createStatement();
 		  PreparedStatement ps =con.prepareStatement("SELECT * FROM cargouser WHERE iduser=? and mdp=?");
 		  ps.setString(1,req.getParameter("login"));
-		  ps.setString(2,req.getParameter("mdp"));
+		  ps.setString(2,req.getParameter("password"));
 		  ResultSet rs = ps.executeQuery();
 		  if(rs.next()) {
 		      HttpSession session = req.getSession(true);
