@@ -32,7 +32,7 @@ public class Home extends HttpServlet {
 		
 		if(u == null){
 			out.println("<li class=\"inscription\">");
-			out.println("<a href=\"../creerprofil.html\" class=\"inscription\">S'inscrire  </a>");
+			out.println("<a href=\"CreerProfil2\" class=\"inscription\">S'inscrire  </a>");
 			out.println("<span \"pipe\"> | </span>");
 			out.println("</li>");
 			out.println("<li class=\"connexion\">");

@@ -2,19 +2,22 @@ package fr.iutinfo.cargo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+@SuppressWarnings("serial")
 @WebServlet("/servlet/CreerProfil")
 public class CreerProfil extends HttpServlet {
-	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public void service(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
+		HttpSession s = req.getSession(true);
+
 		res.setContentType("text/html");
 		out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
@@ -26,7 +29,20 @@ public class CreerProfil extends HttpServlet {
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
 		out.println("<title>Suite de votre profil</title>");
 		out.println("</head>");
-		out.println("<body><center><h1>");
+		out.println("<body><center>");
+
+		if (s.getAttribute("erreur") != null) {
+			out.println("<h4>Veuillez corriger la (les) erreur(s) suivante(s) :</h4>");
+			out.println("<table border=1 color=#FF0000>");
+			if (s.getAttribute("erreurLogin") != null)
+				out.println("<tr><td>Login déjà utilisé.</td></tr>");
+			if (s.getAttribute("erreurNum") != null)
+				out.println("<tr><td>Numéro de téléphone invalide.</td></tr>");
+			if (s.getAttribute("erreurAdresse") != null)
+				out.println("<tr><td>Adresse mail invalide.</td></tr>");
+			out.println("</table><br/>");
+		}
+		out.println("<h1>");
 		out.println("<font color=\"DARKRED\">Créons votre profil</font>");
 		out.println("<FORM METHOD=\"POST\" ACTION=\"CreerProfil2\">");
 		out.println("Nom :");
@@ -41,18 +57,15 @@ public class CreerProfil extends HttpServlet {
 		out.println("Adresse Mail");
 		out.println("<INPUT type=\"text\" value=\"\" name=\"mail\">");
 		out.println("<br/>");
-		out.println("<INPUT type=\"hidden\" value="+req.getParameter("login")+" name=\"login\">");
+		out.println("<INPUT type=\"hidden\" value=" + req.getParameter("login")
+				+ " name=\"login\">");
 		out.println("<br/>");
-		out.println("<INPUT type=\"hidden\" value="+req.getParameter("mdp")+" name=\"mdp\">");
+		out.println("<INPUT type=\"hidden\" value=" + req.getParameter("mdp")
+				+ " name=\"mdp\">");
 		out.println("<br/>");
 		out.println("<INPUT type=\"submit\" value=\"creer profil\">");
 		out.println("</FORM>");
 		out.println("</center>");
 		out.println("</body></html>");
-		
-		
-
-
-
 	}
 }
