@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		  <title>Page d'authentification</title>
+		<meta charset='utf-8'>
+		<link rel="stylesheet" href="authentification.css" >
+	</head>
+
+	<body>
+		<header class="entete">
+			<div class="header-containt">
+				<a href="index2.html" class="logo"><img src="logo.jpg" alt="CarGo !"></a>
+				<nav class="site-menu">
+					<ul class="menu-lien">
+						<li class ="menu-btn">
+							<a href="index2.html" class="reche-btn">Rechercher</a>
+							<a href="proposer.html" class="prop-btn">Proposer un trajet</a>
+						</li>
+						<li class="inscription">
+							<a href="inscription.html" class="inscription">S'inscrire  </a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		
+		<div class="boite-connexion">
+			<br><br>
+			<br><br><br><br>
+			<h2>Connexion à CarGo!</h2>
+			<form method="POST" action="servlet/Authentification">
+				<label class="lab1">Identifiant:</label>
+					<input type="text" value="" name="login" maxlength="10">
+					<br>
+				<label class="lab2">Mot de passe :</label>
+					<input type="password" value="" name="mdp">
+							
+				<a href="forgotpass" class="forgotpass">Mot de passe oublié?</a>
+					<br>
+				<input type="submit" value="Connexion">
+				<span>ou</span>
+				<a href="creerprofil.html" class="creercompte">Créer un compte </a>
+					
+			</form>	
+		</div>
+
+			<footer>
+			<div class="barre-menu-haut">
+				<h3>Infos Pratiques<h3>
+				<h3>A propos<h3>
+				<h3>NewsLetter<h3>
+
+			</div>
+		</footer>
+
+	</body>
+
+</html>
+		
