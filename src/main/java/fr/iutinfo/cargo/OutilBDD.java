@@ -41,7 +41,7 @@ public class OutilBDD {
 			e.printStackTrace();
 			this.close();
 		}
-		return (ArrayList<Trajet>) liste;
+		return liste;
 	}
 
 	private void close() {
@@ -103,7 +103,7 @@ public class OutilBDD {
 			e.printStackTrace();
 			this.close();
 		}
-		return (ArrayList<Trajet>) liste;
+		return liste;
 
 	}
 
@@ -294,9 +294,37 @@ public class OutilBDD {
 		}
 
 	}
-
+	
 	/*---------------------------------------------------------------------------------------*/
-
+	public ArrayList<String> recupererAvis(String iduser){
+		ArrayList<String> liste = new ArrayList<String>();
+		ResultSet rs;
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select * from avis where iduser ='"+iduser+"' ;");
+			while (rs.next()) {
+				liste.add(rs.getString("avis"));
+			}
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return liste;
+	}
+	public void ajouterAvis(String iduser, String avis) {
+		try {
+			this.connect();
+			String requete = "insert into relation (iduser,avis) values ('" + iduser + "','"
+					+ avis + "')";
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+	}
 	public void creerTables() {
 		try {
 			this.connect();
@@ -304,6 +332,7 @@ public class OutilBDD {
 			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
 			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
+			stmt.executeUpdate("CREATE TABLE avis(idavis INTEGER PRIMARY KEY AUTOINCREMENT,iduser varchar(20),avis text,foreign key (iduser) references cargouser(iduser));");
 
 			this.close();
 		} catch (SQLException e) {
@@ -318,6 +347,7 @@ public class OutilBDD {
 			stmt.executeUpdate("DROP TABLE relation");
 			stmt.executeUpdate("DROP TABLE cargouser;");
 			stmt.executeUpdate("DROP TABLE trajet;");
+			stmt.executeUpdate("DROP TABLE avis;");
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
