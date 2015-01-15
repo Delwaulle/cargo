@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@SuppressWarnings("serial")
 @WebServlet("/servlet/AfficherListe")
 public class AfficherListe extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res)
@@ -80,7 +81,6 @@ public class AfficherListe extends HttpServlet {
 		out.print("<th>heure arrivée</TH>");
 		out.print("<th>nombre de places :</th>");
 		out.print("<th>Prix :</TH>");
-		out.print("<th></TH>");
 		out.println("</tr>");
 		for (int i = 0; i < liste.size(); i++) {
 			out.println("<tr>");
@@ -104,6 +104,10 @@ public class AfficherListe extends HttpServlet {
 	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+ ((Utilisateur)(session.getAttribute("iduser"))).getIduser() + "\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ liste.get(i).getIdtrajet() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Reserver\"></FORM></td>");
+	    	out.println("</tr>");
+	    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+ ((Utilisateur)(session.getAttribute("iduser"))).getIduser() + "\">");
+	    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
 	    	out.println("</tr>");
 		}
 		out.println("</table>");
