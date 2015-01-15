@@ -92,22 +92,19 @@ public class AfficherListe extends HttpServlet {
 			out.println("<td>" + liste.get(i).getNbPlace() + "</td>");
 			out.println("<td>" + liste.get(i).getPrix() + "</td>");
 			out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
-			out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""
-					+ liste.get(i).getVilleDepart() + "\">");
-			out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""
-					+ liste.get(i).getVilleArrivee() + "\">");
-			out.println("<INPUT type = \"hidden\" name =\"date\" value =\""
-					+ liste.get(i).getDateTrajet() + "\">");
-			out.println("<INPUT type = \"hidden\" name =\"heureDepart\" value =\""
-					+ liste.get(i).getHeureDepart() + "\">");
-			out.println("<INPUT type = \"hidden\" name =\"heureArrivee\" value =\""
-					+ liste.get(i).getHeureArrivee() + "\">");
-			out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""
-					+ liste.get(i).getNbPlace() + "\">");
-			out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""
-					+ liste.get(i).getPrix() + "\">");
-			out.println("<INPUT type = \"submit\" value = \"Details\"</td>");
-			out.println("</tr>");
+	    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"date\" value =\""+liste.get(i).getDateTrajet() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"heureDepart\" value =\""+liste.get(i).getHeureDepart() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"heureArrivee\" value =\""+liste.get(i).getHeureArrivee() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""+liste.get(i).getNbPlace() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
+	    	out.println("<INPUT type = \"submit\" value = \"Details\"></FORM></td>");
+	    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+ ((Utilisateur)(session.getAttribute("iduser"))).getIduser() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ liste.get(i).getIdtrajet() + "\">");
+	    	out.println("<INPUT type = \"submit\" value = \"Reserver\"></FORM></td>");
+	    	out.println("</tr>");
 		}
 		out.println("</table>");
 		out.println("</center></body><html>");
