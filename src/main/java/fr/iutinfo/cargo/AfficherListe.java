@@ -43,7 +43,7 @@ public class AfficherListe extends HttpServlet {
         	dateConforme=false;
         }
         session.setAttribute("date",null);
-		liste = db.recupererListeTrajets(null, depart, arrivee, date, null,
+		liste = db.recupererListeTrajets(null,null, depart, arrivee, date, null,
 				null, null, null);
 		out.println("</head><body>");
 		out.println("<header class=\"entete\">");

@@ -57,13 +57,16 @@ public class OutilBDD {
 
 	}
 
-	public ArrayList<Trajet> recupererListeTrajets(String iduser,
+	public ArrayList<Trajet> recupererListeTrajets(Integer idTrajet, String iduser,
 			String villeDepart, String villeArrivee, String dateTrajet,
 			Integer heureDepart, Integer heureArrivee, Integer nbPlace,
 			Double prix) {
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
+		if (idTrajet != null && !idTrajet.equals("")) {
+			where += "idtrajet like '" + idTrajet + "%' and ";
+		}
 		if (iduser != null && !iduser.equals("")) {
 			where += "iduser like '" + iduser + "%' and ";
 		}
@@ -116,7 +119,7 @@ public class OutilBDD {
 		Trajet trajet = null;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from trajet where idtrajet = '"+ idtrajet + "';");
+			rs = stmt.executeQuery("select * from trajet;");
 			trajet = new Trajet(rs.getInt(1), rs.getString(2), rs.getString(3),
 					rs.getString(4), rs.getString(5), rs.getInt(6),
 					rs.getInt(7), rs.getInt(8), rs.getDouble(9));
