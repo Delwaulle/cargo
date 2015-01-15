@@ -36,7 +36,6 @@ public class ListerNotifications  extends HttpServlet{
 		out.println("<body>");
 		out.println("<table class=table table-striped><thead><tr>");
 		out.println("<th>#</th>");
-		out.println("<th>idnotif</th>");
 		out.println("<th>Expediteur</th>");
 		out.println("<th>Message</th>");
 		out.println("</tr></thead>");
@@ -46,15 +45,15 @@ public class ListerNotifications  extends HttpServlet{
 		for(int i=0;i<notifications.size();i++){
 			out.println("<tr>");
 			out.println("<td>"+i+"</td>");
-			out.println("<td>"+notifications.get(i).getIdnotif()+"</td>");
 			out.println("<td>"+notifications.get(i).getExpediteur()+"</td>");
 			out.println("<td>"+notifications.get(i).getMessage()+"</td>");
 			out.println("</tr>");
 		}
 		
 		out.println("</tbody>");
-		out.println("</body>");
 		out.println("</table>");
+		out.println("</body>");
+		out.println("</html>");
 		
 		
 	}
