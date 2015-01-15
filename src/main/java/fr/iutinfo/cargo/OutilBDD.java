@@ -107,6 +107,20 @@ public class OutilBDD {
 
 	}
 
+	public void reserverTrajet(String iduser, Integer idtrajet) {
+		try {
+			this.connect();
+			String requete = "insert into relation values ('" + iduser + "',"
+					+ idtrajet + ",0)";
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+	}
+
 	public void ajouterTrajet(String iduser, String villeDepart,
 			String villeArrivee, String dateTrajet, Integer heureDepart,
 			Integer heureArrivee, Integer nbPlace, Double prix, String voiture) {
@@ -129,8 +143,7 @@ public class OutilBDD {
 					+ ","
 					+ prix
 					+ ",'"
-					+ voiture
-					+ "')";
+					+ voiture + "')";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -232,7 +245,7 @@ public class OutilBDD {
 		try {
 			this.connect();
 			rs = stmt
-					.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser where = iduser = '"
+					.executeQuery("select iduser,nom,prenom,numtel,mail from cargouser where iduser = '"
 							+ idUser + "';");
 			u = new Utilisateur(rs.getString(1), rs.getString(2),
 					rs.getString(3), rs.getString(4), rs.getString(5));
@@ -289,7 +302,7 @@ public class OutilBDD {
 		try {
 			this.connect();
 
-			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER,foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
+			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
 			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,voiture text,foreign key (iduser) references cargouser(iduser));");
 
