@@ -21,11 +21,15 @@ public class PageReservation extends HttpServlet {
 		List<Reservation> listeResas = db.recupererReservations(((Utilisateur)session.getAttribute("iduser")).getIduser());
 		Utilisateur u;
 		if (req.getParameter("idUser") != null) {
+			Trajet tmp;
 			u = db.recupererUtilisateur(req.getParameter("idUser"));
 			out.println("<html> <head> <meta charset=UTF-8>");
 			out.println("<title> Details du trajet </title> </head> <body>");
 			for(Reservation r : listeResas){
 				out.println("<div>");
+				tmp = db.recupererTrajetAt(r.getIdTrajet());
+				out.println("Départ : " + tmp.getVilleDepart() + " Ville arrivée : " + tmp.getVilleArrivee() + "date : " + tmp.getDateTrajet() + " Etat : "+ r.getAccepte());
+				out.println("</div>");
 			}
 			out.println("");
 		}

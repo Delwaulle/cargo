@@ -107,6 +107,25 @@ public class OutilBDD {
 
 	}
 
+	public Trajet recupererTrajetAt(Integer idtrajet) {
+		ResultSet rs;
+		Trajet trajet = null;
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select * from trajet;");
+			trajet = new Trajet(rs.getInt(1), rs.getString(2),
+					rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getInt(6), rs.getInt(7), rs.getInt(8),
+					rs.getDouble(9));
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		} finally {
+			return trajet;
+		}
+	}
+
 	public void reserverTrajet(String iduser, Integer idtrajet) {
 		try {
 			this.connect();
@@ -120,15 +139,16 @@ public class OutilBDD {
 			this.close();
 		}
 	}
-	
-	public ArrayList<Reservation> recupererReservations(String iduser){
+
+	public ArrayList<Reservation> recupererReservations(String iduser) {
 		List<Reservation> listeResas = new ArrayList<>();
 		ResultSet rs;
 		try {
 			this.connect();
 			rs = stmt.executeQuery("select * from relations;");
 			while (rs.next()) {
-				listeResas.add(new Reservation(rs.getString(1), rs.getInt(2), rs.getInt(3)));
+				listeResas.add(new Reservation(rs.getString(1), rs.getInt(2),
+						rs.getInt(3)));
 			}
 			this.close();
 		} catch (SQLException e) {
@@ -154,12 +174,7 @@ public class OutilBDD {
 					+ "',"
 					+ heureDepart
 					+ ","
-					+ heureArrivee
-					+ ","
-					+ nbPlace
-					+ ","
-					+ prix
-					+ ")";
+					+ heureArrivee + "," + nbPlace + "," + prix + ")";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -273,62 +288,63 @@ public class OutilBDD {
 		return u;
 	}
 
-	public void updateProfil(String nom, String prenom,
-			String numtel, String mail) {
+	public void updateProfil(String nom, String prenom, String numtel,
+			String mail) {
 		try {
 			this.connect();
-			
-		boolean argumentNonNUll = false;
-		String requete = "update Utilisateur set ";
-		if (nom != null) {
-			requete += "nom = '" + nom + "'";
-			argumentNonNUll = true;
-		}
-		if (argumentNonNUll) {
-			requete += ",";
-			argumentNonNUll = false;
-		}
-		if (prenom != null) {
-			requete += "prenom = '" + prenom + "'";
-			argumentNonNUll = true;
-		}
-		if (argumentNonNUll) {
-			requete += ",";
-			argumentNonNUll = false;
-		}
-		if (numtel != null) {
-			requete += "numtel = '" + numtel + "'";
-			argumentNonNUll = true;
-		}
-		if (argumentNonNUll) {
-			requete += ",";
-			argumentNonNUll = false;
-		}
-		if (mail != null) {
-			requete += "mail = '" + mail + "'";
-			argumentNonNUll = true;
-		}
-		if (argumentNonNUll) {
-			requete += ",";
-			argumentNonNUll = false;
-		}
-		System.out.println(requete);
-	    stmt.executeUpdate(requete);
-	    this.close();
-		} catch(SQLException e) {
+
+			boolean argumentNonNUll = false;
+			String requete = "update Utilisateur set ";
+			if (nom != null) {
+				requete += "nom = '" + nom + "'";
+				argumentNonNUll = true;
+			}
+			if (argumentNonNUll) {
+				requete += ",";
+				argumentNonNUll = false;
+			}
+			if (prenom != null) {
+				requete += "prenom = '" + prenom + "'";
+				argumentNonNUll = true;
+			}
+			if (argumentNonNUll) {
+				requete += ",";
+				argumentNonNUll = false;
+			}
+			if (numtel != null) {
+				requete += "numtel = '" + numtel + "'";
+				argumentNonNUll = true;
+			}
+			if (argumentNonNUll) {
+				requete += ",";
+				argumentNonNUll = false;
+			}
+			if (mail != null) {
+				requete += "mail = '" + mail + "'";
+				argumentNonNUll = true;
+			}
+			if (argumentNonNUll) {
+				requete += ",";
+				argumentNonNUll = false;
+			}
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
+			this.close();
+		} catch (SQLException e) {
 			e.printStackTrace();
 			this.close();
 		}
 
 	}
-	
+
 	/*---------------------------------------------------------------------------------------*/
-	public ArrayList<String> recupererAvis(String iduser){
+	public ArrayList<String> recupererAvis(String iduser) {
 		ArrayList<String> liste = new ArrayList<String>();
 		ResultSet rs;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from avis where iduser ='"+iduser+"' ;");
+			rs = stmt.executeQuery("select * from avis where iduser ='"
+					+ iduser + "' ;");
 			while (rs.next()) {
 				liste.add(rs.getString("avis"));
 			}
@@ -339,11 +355,12 @@ public class OutilBDD {
 		}
 		return liste;
 	}
+
 	public void ajouterAvis(String iduser, String avis) {
 		try {
 			this.connect();
-			String requete = "insert into relation (iduser,avis) values ('" + iduser + "','"
-					+ avis + "')";
+			String requete = "insert into relation (iduser,avis) values ('"
+					+ iduser + "','" + avis + "')";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -352,6 +369,7 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+
 	public void creerTables() {
 		try {
 			this.connect();
