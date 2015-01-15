@@ -6,15 +6,15 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.sql.*;
 
-@WebServlet("/servlet/Maj2")
-public class EditerProfil2 {
+@WebServlet("/servlet/EditerProfil2")
+public class EditerProfil2 extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
-		out.println("<title>Maj2</title></head>");
+		out.println("<title>Mise a jour</title></head>");
 		out.println("<body><center>");
 		out.println("<h1>Mise a jour</h1>");
 		
@@ -34,7 +34,7 @@ public class EditerProfil2 {
 	    out.println("Vos donnees ont bien été mise a jour !");
 	    out.println("<br/><a href='Home'>Retour au Home</a>");
 	    
-	    out.println("<body><center>");
+	    out.println("<body><center></html>");
 	   
 	}
 	    		

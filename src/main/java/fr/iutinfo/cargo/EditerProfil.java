@@ -8,12 +8,12 @@ import javax.servlet.annotation.*;
 import java.sql.*;
 
 @WebServlet("/servlet/EditerProfil")
-public class EditerProfil {
+public class EditerProfil extends HttpServlet{
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
-		out.println("<link rel=stylesheet type=text/css href=style.css>");
-		out.println("<title>Maj</title></head>");
+		out.println("<html><link rel=stylesheet type=text/css href=style.css>");
+		out.println("<head><title>Maj</title></head>");
 		out.println("<body><center>");
 		out.println("<h1>Mettre a jour votre profil :</h1>");
 		
@@ -34,7 +34,7 @@ public class EditerProfil {
 		out.print("<TD><INPUT type='text' value='"+u.getMail()+"' name=mail></TD>");
 		out.println("</TR>");
 		
-		out.println("</table><INPUT type='submit' value='Mettre a jour'></FORM></center></body>");
+		out.println("</table><INPUT type='submit' value='Mettre a jour'></FORM></center></body></html>");
 	}
 }
 	
