@@ -49,14 +49,16 @@ public class ConsultationProfil extends HttpServlet {
 		out.println("<form method=\"post\" action=\"/servlet/ajouterAvisBDD\">");
 		out.println("<div class=input>"
 				+ "<label>Noter ce conducteur :</label>"
-				+ "<select name=nbPlaces>" + "<option value=1>1</option>"
+				+ "<select name=note>" + "<option value=1>1</option>"
 				+ "<option value=2>2</option>" + "<option value=3>3</option>"
 				+ "<option value=4>4</option>" + "<option value=5>5</option>"
 				+ "</select>" + "</div>");
 		out.println("<p>");
-		out.println("<label for=\"ameliorer\">Comment pensez-vous que je pourrais améliorer mon site ?</label><br />");
+		out.println("<label for=\"ameliorer\">Donner un avis sur ce conducteur :</label><br />");
 		out.println("<textarea name=\"ameliorer\" id=\"ameliorer\"></textarea>");
 		out.println("</p>");
+		out.println("<INPUT type = \"hidden\" name=\"idconducteur\" value = \""+cond+"\"/>");
+
 		out.println("<INPUT type = \"submit\" value = \"Noter\"/>");
 		out.println("</form>");
 		out.println("</center></body><html>");
