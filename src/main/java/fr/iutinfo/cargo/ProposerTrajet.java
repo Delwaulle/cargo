@@ -22,9 +22,13 @@ public class ProposerTrajet extends HttpServlet {
 		res.setContentType("text/html");
 		HttpSession s = req.getSession(true);
 		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
-		String login = u.getIduser();
-		System.out.println(login);
+		String login="";
+		try{
+		login = u.getIduser();
+		}catch(Exception e){
+			res.sendRedirect("../servlet/Home");
 		
+		}
 		if(login==null){ res.sendRedirect("../servlet/Home"); }
 		out.println("<html>");
 		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Proposer un trajet </Title></head>");
@@ -47,8 +51,8 @@ public class ProposerTrajet extends HttpServlet {
 
 		out.println("<div class=input>"+
 				"<label>Date :</label>"+
-				"<div class=input-lg>"+
-				" <input type=date class=form-control name=date>"+
+				"<div>"+
+				"<input type=text class=form-control name=date placeholder=jj/mm/aaaa>"+
 				"</div>"+
 				"</div>");
 
