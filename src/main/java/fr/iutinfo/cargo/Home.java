@@ -27,7 +27,6 @@ public class Home extends HttpServlet {
 		out.println("<nav class=\"site-menu\">");
 		out.println("<ul class=\"menu-lien\">");
 		out.println("<li class =\"menu-btn\">");
-		out.println("<a href=\"Home\" class=\"reche-btn\">Rechercher</a>");
 		out.println("<a href=\"ProposerTrajet\" class=\"prop-btn\">Proposer un trajet</a>");
 		out.println("</li>");
 		

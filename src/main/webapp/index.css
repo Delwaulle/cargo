@@ -5,7 +5,7 @@ header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;
 .site-menu{display:block;margin:17px}
 .menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
 .menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
-.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:20px;;color:white;;padding:5px;}
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
 .reche-btn{background-color:#69ca90}
 .prop-btn{background-color:orange}
 .reche-btn:hover{box-shadow:0 1px 0 inset}
