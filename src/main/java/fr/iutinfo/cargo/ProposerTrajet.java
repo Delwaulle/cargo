@@ -26,10 +26,10 @@ public class ProposerTrajet extends HttpServlet {
 		try{
 		login = u.getIduser();
 		}catch(Exception e){
-			res.sendRedirect("../servlet/Home");
+			res.sendRedirect("../login.html");
 		
 		}
-		if(login==null){ res.sendRedirect("../servlet/Home"); }
+		if(login==null){ res.sendRedirect("../login.html"); }
 		out.println("<html>");
 		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Proposer un trajet </Title></head>");
 		out.println("<div class=container-fluid>");
