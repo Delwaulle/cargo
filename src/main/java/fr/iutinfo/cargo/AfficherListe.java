@@ -2,7 +2,9 @@ package fr.iutinfo.cargo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -30,6 +32,13 @@ public class AfficherListe extends HttpServlet {
 		String depart = req.getParameter("depart");
 		String arrivee = req.getParameter("arrivee");
 		String date = req.getParameter("date");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date d = new Date();
+        try {
+            d = sdf.parse(date);
+        } catch (Exception e) {
+            res.sendRedirect("Home");
+        }
 		liste = db.recupererListeTrajets(null, depart, arrivee, date, null,
 				null, null, null);
 		out.println("</head><body>");
