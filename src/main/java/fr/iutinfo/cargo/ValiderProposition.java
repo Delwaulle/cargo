@@ -17,10 +17,9 @@ public class ValiderProposition extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		HttpSession s = req.getSession(true);
-		String login = (String) s.getAttribute("Username");
-		/*
-		 * if(login==null){ res.sendRedirect("../login.html"); }
-		 */
+		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
+		String login = u.getIduser();
+		if(login==null){ res.sendRedirect("../servlet/Home"); }
 
 		String villeD = req.getParameter("villeD");
 		System.out.println(req.getParameter("villeD"));

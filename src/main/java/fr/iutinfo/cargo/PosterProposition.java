@@ -19,11 +19,9 @@ public class PosterProposition extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		HttpSession s = req.getSession(true);
-		String login = (String) s.getAttribute("Username");
-		/*
-		 * if(login==null){ res.sendRedirect("../login.html"); }
-		 */
-		login = "loic";
+		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
+		String login = u.getIduser();
+		if(login==null){ res.sendRedirect("../servlet/Home"); }
 		String villeD = req.getParameter("villeD");
 		String villeA = req.getParameter("villeA");
 		String date = req.getParameter("date");
@@ -44,7 +42,6 @@ public class PosterProposition extends HttpServlet {
 		}
 
 		OutilBDD obdd = new OutilBDD();
-		out.println("VILLE DEPART : " + villeD);
 		obdd.ajouterTrajet(login, villeD, villeA, date, heureD, null, nbPlaces,
 				prix,voiture);
 		ArrayList<Trajet> liste = obdd.recupererListeTrajets();
@@ -53,5 +50,6 @@ public class PosterProposition extends HttpServlet {
 			out.println(liste.get(i).getVilleArrivee());
 			out.println(liste.get(i).getDateTrajet());
 		}
+		res.sendRedirect("Home");
 	}
 }
