@@ -33,15 +33,12 @@ public class AfficherListe extends HttpServlet {
 		String arrivee = req.getParameter("arrivee");
 		String date = req.getParameter("date");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		boolean dateConforme=false;
         Date d = new Date();
         try {
             d = sdf.parse(date);
-            dateConforme=true;
         } catch (Exception e) {
-        	dateConforme=false;
+            res.sendRedirect("Home");
         }
-        session.setAttribute("date",null);
 		liste = db.recupererListeTrajets(null, depart, arrivee, date, null,
 				null, null, null);
 		out.println("</head><body>");
@@ -71,7 +68,6 @@ public class AfficherListe extends HttpServlet {
 			out.println("<a href=\"Deconnect\" class=\"connexion\">Se deconnecter </a>");
 			out.println("</li>");
 		}
-
 		out.println("</ul>");
 		out.println("</nav>");
 		out.println("</div>");
@@ -81,10 +77,7 @@ public class AfficherListe extends HttpServlet {
 		out.println("<FORM METHOD = \"POST\" ACTION = \"AfficherListe\">");
 		out.println("<input type=\"text\" name=\"depart\" class=\"depart\" placeholder=\"Depart ?\"/>");
 		out.println("<input type=\"text\" name=\"arrivee\" class=\"arrive\"  placeholder=\"Arrivee ?\"/>");
-		if(dateConforme)
-			out.println("<input type=text name=\"date\" placeholder=jj/mm/aaaa>");
-		else
-			out.println("<input type=text color:red name=\"date\" placeholder=Erreur&nbsp;format&nbsp;date>");
+		out.println("<input type=text name=\"date\" placeholder=jj/mm/aaaa>");
 		out.println("<INPUT type = \"submit\" value = \"Rechercher\"/>");
 		out.println("</FORM>");
 		out.println("</div>");

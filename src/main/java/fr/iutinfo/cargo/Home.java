@@ -40,7 +40,35 @@ public class Home extends HttpServlet {
 			out.println("</li>");
 		} else {
 			out.println("<li class=\"inscription\">");
-			out.println("Bonjour "+ u.getIduser() +".");
+			out.println("<ul id=\"menu-demo2\">");
+			out.println("<li><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
+			out.println("<ul>");
+			out.println("<li><a href=\"#\">Voir Profil</a></li>");
+			out.println("<li><a href=\"#\">Notifications</a></li>");
+			out.println("</ul>");
+			out.println("</li>");
+			out.println("</ul>");
+			 
+			/*<script language="JavaScript"> 
+			function ChangeUrl(formulaire) 
+			   { 
+			   if (formulaire.ListeUrl.selectedIndex != 0) 
+			      { 
+			     var url ; 
+			     url = formulaire.ListeUrl.options[formulaire.ListeUrl.selectedIndex].value; 
+			     window.open(url,'_blank'); 
+			       } 
+			   } 
+			</script> 
+			<FORM > 
+			<SELECT NAME="ListeUrl" SIZE=1 onChange="ChangeUrl(this.form)"  > 
+			<OPTION SELECTED VALUE="">-Menu Déroulant De Liens-</option> 
+			  <option value="Lien 1">Titre 1</option> 
+			  <option value="Lien 2">Titre 2</option> 
+			  <option value="Lien 3">Titre 3</option>
+			  <option value="Lien 4">Titre 4</option>  
+			</SELECT> 
+			</FORM>*/
 			out.println("<span \"pipe\"> | </span>");
 			out.println("</li>");
 			out.println("<li class=\"connexion\">");
