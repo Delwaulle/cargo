@@ -68,6 +68,7 @@ public class CreerProfil2 extends HttpServlet {
 			adresseValide = false;
 		}
 
+		/* Agit en fonction de la validité des infos fournies par l'utilisateur */
 		if (valide) {
 			Utilisateur u = new Utilisateur(login, nom, prenom, numTel, mail);
 			OutilBDD o = new OutilBDD();
