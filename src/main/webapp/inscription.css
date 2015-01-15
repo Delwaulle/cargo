@@ -1,0 +1,35 @@
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:20px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.boite-inscription{width:900px; margin-left:auto;margin-right:auto;padding-top:20px ; background-image:linear-gradient(#ebe8ec,#dad7db); padding-bottom:200px}
+form{ margin-left : auto ; margin-right : auto; text-align:center }
+h2{text-align:center}
+.option{margin-right:93px;margin-bottom:10px;border-radius:6px}
+.nom{margin-left:15px;margin-top:10px;}
+.identifiant{margin-right:15px;margin-top:10px;}
+.pass{margin-right:38px;margin-top:10px}
+.datenaiss{margin-right:63px;padding-right:20px;margin-top:8px}
+.tel{margin-right:86px;margin-top:10px}
+.adresse{margin-right:6px;margin-top:10px}
+label{display:inline-block;}
+input[type="text"]{margin-bottom:5px;border-radius:2px}
+input[type="submit"]{margin-top:30px;background-color:#00ffff;border-radius:6px;text-align:center;height:25px}
+input[type="reset"]{margin-top:30px;background-color:#00ffff;border-radius:6px;text-align:center;height:25px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+input[type="reset"]:hover{box-shadow:0 1px 0 inset}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;vertical-align:middle}
