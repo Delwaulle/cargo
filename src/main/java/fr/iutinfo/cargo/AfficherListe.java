@@ -101,12 +101,10 @@ public class AfficherListe extends HttpServlet {
 	    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Details\"></FORM></td>");
 	    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+ ((Utilisateur)(session.getAttribute("iduser"))).getIduser() + "\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ liste.get(i).getIdtrajet() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Reserver\"></FORM></td>");
 	    	out.println("</tr>");
 	    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+ ((Utilisateur)(session.getAttribute("iduser"))).getIduser() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
 	    	out.println("</tr>");
 		}
