@@ -21,8 +21,9 @@ public class ValiderProposition extends HttpServlet {
 		String login = u.getIduser();
 		if(login==null){ res.sendRedirect("../servlet/Home"); }
 
+		out.println("<html>");
+		out.println("<head><meta charset=UTF-8><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Aperçu trajet </Title></head>");
 		String villeD = req.getParameter("villeD");
-		System.out.println(req.getParameter("villeD"));
 		String villeA = req.getParameter("villeA");
 		String date = req.getParameter("date");
 		String nbPlaces = req.getParameter("nbPlaces");
@@ -54,6 +55,7 @@ public class ValiderProposition extends HttpServlet {
 		out.println("<input type=hidden name=voiture value=" + voiture + ">");
 		out.println("<INPUT type=submit value=Poster la proposition>");
 		out.println("</FORM>");
+		out.println("</html>");
 	}
 
 }

@@ -31,7 +31,7 @@ public class ProposerTrajet extends HttpServlet {
 		}
 		if(login==null){ res.sendRedirect("../login.html"); }
 		out.println("<html>");
-		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Proposer un trajet </Title></head>");
+		out.println("<head><meta charset=UTF-8><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Proposer un trajet </Title></head>");
 		out.println("<div class=container-fluid>");
 		out.println("<p class=lead> Entrez un trajet </p>");
 		out.println("<form method=get action=../servlet/ValiderProposition");
