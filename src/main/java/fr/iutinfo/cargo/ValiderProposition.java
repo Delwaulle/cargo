@@ -22,7 +22,7 @@ public class ValiderProposition extends HttpServlet {
 		if(login==null){ res.sendRedirect("../servlet/Home"); }
 
 		out.println("<html>");
-		out.println("<head><meta charset=UTF-8><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Aperçu trajet </Title></head>");
+		out.println("<head><meta charset=UTF-8><link href=../bouton.css type=text/css rel=stylesheet><Title> Aperçu trajet </Title></head>");
 		String villeD = req.getParameter("villeD");
 		String villeA = req.getParameter("villeA");
 		String date = req.getParameter("date");

@@ -18,8 +18,14 @@ public class PageReservation extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		OutilBDD db = new OutilBDD();
-		List<Reservation> listeResas = db.recupererReservations(((Utilisateur)session.getAttribute("iduser")).getIduser());
-		Utilisateur u;
+		Utilisateur u = (Utilisateur) session.getAttribute("iduser");
+		String login="";
+		try{
+		login = u.getIduser();
+		}catch(Exception e){
+			res.sendRedirect("../login.html");
+		}
+		List<Reservation> listeResas = db.recupererReservations(login);
 		if (req.getParameter("idUser") != null) {
 			Trajet tmp;
 			u = db.recupererUtilisateur(req.getParameter("idUser"));

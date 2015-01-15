@@ -17,7 +17,6 @@ public class ReserverTrajet extends HttpServlet {
 		if(session != null){
 			OutilBDD db = new OutilBDD();
 			db.reserverTrajet(req.getParameter("idUser"), Integer.parseInt(req.getParameter("idTrajet")));
-			JOptionPane.showMessageDialog(null,"Le trajet a été posté","Succès", JOptionPane.INFORMATION_MESSAGE);
 			res.sendRedirect("/servlet/PageReservation");
 		}
 		else{
