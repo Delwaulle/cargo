@@ -13,14 +13,17 @@ import javax.swing.JOptionPane;
 @WebServlet("/servlet/ReserverTrajet")
 public class ReserverTrajet extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
-		HttpSession session = req.getSession(true);
-		if(session != null){
-			OutilBDD db = new OutilBDD();
-			db.reserverTrajet(req.getParameter("idUser"), Integer.parseInt(req.getParameter("idTrajet")));
-			res.sendRedirect("/servlet/PageReservation");
+		HttpSession s = req.getSession(true);
+		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
+		String login="";
+		try{
+			login = u.getIduser();
+		}catch(Exception e){
+			res.sendRedirect("../login.html");
 		}
-		else{
-			res.sendRedirect("/servlet/login.html");
-		}
+		OutilBDD db = new OutilBDD();
+		db.reserverTrajet(login, Integer.parseInt(req.getParameter("idTrajet")));
+		res.sendRedirect("/servlet/PageReservation");
+
 	}
 }

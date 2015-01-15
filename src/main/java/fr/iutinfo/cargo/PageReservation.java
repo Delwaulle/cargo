@@ -26,18 +26,30 @@ public class PageReservation extends HttpServlet {
 			res.sendRedirect("../login.html");
 		}
 		List<Reservation> listeResas = db.recupererReservations(login);
-		if (u.getIduser() != null) {
+		if (login != null) {
 			Trajet tmp;
-			u = db.recupererUtilisateur(req.getParameter("idUser"));
 			out.println("<html> <head> <meta charset=UTF-8>");
+			out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet> <link href=../avis.css type=text/css rel=stylesheet>  <Title> Avis </Title></head>");
 			out.println("<title> Details du trajet </title> </head> <body>");
-			for(Reservation r : listeResas){
-				out.println("<div>");
-				tmp = db.recupererTrajetAt(r.getIdTrajet());
-				out.println("Départ : " + tmp.getVilleDepart() + " Ville arrivée : " + tmp.getVilleArrivee() + "date : " + tmp.getDateTrajet() + " Etat : "+ r.getAccepte());
-				out.println("</div>");
+			out.println("<table class=table table-striped><thead><tr>");
+			out.println("<th>#</th>");
+			out.println("<th>Ville de départ</th>");
+			out.println("<th>Ville d'arrivée</th>");
+			out.println("<th>Date</th>");
+			out.println("<th>Etat</th>");
+			out.println("</tr></thead>");
+			for(int i=0;i<listeResas.size();i++){
+				tmp = db.recupererTrajetAt(listeResas.get(i).getIdTrajet());
+				out.println("<tr>");
+				out.println("<td>"+i+"</td>");
+				out.println("<td>"+tmp.getVilleDepart()+"</td>");
+				out.println("<td>"+tmp.getVilleArrivee()+"</td>");
+				out.println("<td>"+tmp.getDateTrajet()+"</td>");
+				out.println("<td>"+listeResas.get(i).getAccepte()+"</td>");
+				out.println("</tr>");
 			}
-			out.println("");
+			out.println("</tbody>");
+			out.println("</table>");
 		}
 		out.println("</body></html>");
 	}
