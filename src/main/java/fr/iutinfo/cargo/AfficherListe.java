@@ -23,6 +23,7 @@ public class AfficherListe extends HttpServlet {
 		res.setContentType("text/html");
 		out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=../index.css>");
+		out.println("<link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet>");
 		out.println("<title>Liste des trajets</title></head>");
 		out.println("<body><center>");
 		HttpSession session = req.getSession(true);
@@ -33,12 +34,15 @@ public class AfficherListe extends HttpServlet {
 		String arrivee = req.getParameter("arrivee");
 		String date = req.getParameter("date");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		boolean dateConforme=false;
         Date d = new Date();
         try {
             d = sdf.parse(date);
+            dateConforme=true;
         } catch (Exception e) {
-            res.sendRedirect("Home");
+        	dateConforme=false;
         }
+        session.setAttribute("date",null);
 		liste = db.recupererListeTrajets(null, depart, arrivee, date, null,
 				null, null, null);
 		out.println("</head><body>");
@@ -68,6 +72,7 @@ public class AfficherListe extends HttpServlet {
 			out.println("<a href=\"Deconnect\" class=\"connexion\">Se deconnecter </a>");
 			out.println("</li>");
 		}
+
 		out.println("</ul>");
 		out.println("</nav>");
 		out.println("</div>");
@@ -77,7 +82,10 @@ public class AfficherListe extends HttpServlet {
 		out.println("<FORM METHOD = \"POST\" ACTION = \"AfficherListe\">");
 		out.println("<input type=\"text\" name=\"depart\" class=\"depart\" placeholder=\"Depart ?\"/>");
 		out.println("<input type=\"text\" name=\"arrivee\" class=\"arrive\"  placeholder=\"Arrivee ?\"/>");
-		out.println("<input type=text name=\"date\" placeholder=jj/mm/aaaa>");
+		if(dateConforme)
+			out.println("<input type=text name=\"date\" placeholder=jj/mm/aaaa>");
+		else
+			out.println("<input type=text color:red name=\"date\" placeholder=Erreur&nbsp;format&nbsp;date>");
 		out.println("<INPUT type = \"submit\" value = \"Rechercher\"/>");
 		out.println("</FORM>");
 		out.println("</div>");
@@ -90,19 +98,21 @@ public class AfficherListe extends HttpServlet {
 		out.print("<th>heure arrivée</TH>");
 		out.print("<th>nombre de places :</th>");
 		out.print("<th>Prix :</TH>");
+		out.print("<th></TH>");
+		out.print("<th></TH>");
 		out.println("</tr>");
 		for (int i = 0; i < liste.size(); i++) {
 			out.println("<tr>");
 			out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
-			out.println("<INPUT type = \"hidden\" name =\"idcond\" value =\""+liste.get(i).getIduser() + "\">");
+			out.println("<INPUT class=form-control type = \"hidden\" name =\"idcond\" value =\""+liste.get(i).getIduser() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
-			out.println("<td>" + liste.get(i).getVilleDepart() + "</td>");
-			out.println("<td>" + liste.get(i).getVilleArrivee() + "</td>");
-			out.println("<td>" + liste.get(i).getDateTrajet() + "</td>");
-			out.println("<td>" + liste.get(i).getHeureDepart() + "</td>");
-			out.println("<td>" + liste.get(i).getHeureArrivee() + "</td>");
-			out.println("<td>" + liste.get(i).getNbPlace() + "</td>");
-			out.println("<td>" + liste.get(i).getPrix() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getVilleDepart() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getVilleArrivee() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getDateTrajet() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getHeureDepart() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getHeureArrivee() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getNbPlace() + "</td>");
+			out.println("<td class=info>" + liste.get(i).getPrix() + "</td>");
 			out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");
