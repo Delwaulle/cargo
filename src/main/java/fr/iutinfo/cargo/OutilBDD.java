@@ -32,7 +32,7 @@ public class OutilBDD {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7), rs.getInt(8),
-						rs.getDouble(9), rs.getString(10));
+						rs.getDouble(9));
 				liste.add(t);
 
 			}
@@ -94,7 +94,7 @@ public class OutilBDD {
 				Trajet t = new Trajet(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7), rs.getInt(8),
-						rs.getDouble(9), rs.getString(10));
+						rs.getDouble(9));
 				liste.add(t);
 
 			}
@@ -126,7 +126,7 @@ public class OutilBDD {
 			Integer heureArrivee, Integer nbPlace, Double prix, String voiture) {
 		try {
 			this.connect();
-			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix, voiture) values ('"
+			String requete = "insert into trajet (iduser, villedepart, villearrivee, datetrajet, hdep, harr, nbplace, prix) values ('"
 					+ iduser
 					+ "','"
 					+ villeDepart
@@ -142,8 +142,7 @@ public class OutilBDD {
 					+ nbPlace
 					+ ","
 					+ prix
-					+ ",'"
-					+ voiture + "')";
+					+ ")";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
 			this.close();
@@ -304,7 +303,7 @@ public class OutilBDD {
 
 			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
-			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,voiture text,foreign key (iduser) references cargouser(iduser));");
+			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
 
 			this.close();
 		} catch (SQLException e) {
