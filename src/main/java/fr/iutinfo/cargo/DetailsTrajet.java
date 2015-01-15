@@ -10,12 +10,13 @@ import java.sql.*;
 public class DetailsTrajet extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		
+		HttpSession session = req.getSession(true);
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		OutilBDD db = new OutilBDD();
 		Utilisateur u;
-		if (req.getParameter("idUser") != null) {
-			u = db.recupererUtilisateur(req.getParameter("idUser"));
+
 			out.println("<html> <head> <meta charset=UTF-8>");
 			out.println("<title> Details du trajet </title> </head> <body>");
 			out.println("<h1> Informations sur le trajet </h1> <br/> <br/>");
@@ -33,11 +34,8 @@ public class DetailsTrajet extends HttpServlet {
 					+ req.getParameter("nbPlace") + "<br/>");
 			out.println("Prix : " + req.getParameter("prix"));
 			out.println("<BR/>");
-			out.println("Utilisateur : " + u.getPrenom() + " " + u.getPrenom());
-			out.println("<BR/>");
-			out.println("Tel : " + u.getNumtel());
-			out.println("Mail : " + u.getMail());
-		}
-		out.println("</body></html>");
+			
+			out.println("</body></html>");
+		
 	}
 }
