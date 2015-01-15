@@ -10,10 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/servlet/AfficherListe")
 public class AfficherListe extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		HttpSession session = req.getSession(true);
+		
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		out.println("<html><head><meta charset=UTF-8>");
@@ -43,6 +46,7 @@ public class AfficherListe extends HttpServlet {
 	    out.print("<th>nombre de places :</th>");
 	    out.print("<th>Prix :</TH>");
 	    out.print("<th></TH>");
+	    out.print("<th></TH>");
 	    out.println("</tr>");
 	    for(int i = 0; i < liste.size(); i++){
 	    	out.println("<tr>");
@@ -62,7 +66,12 @@ public class AfficherListe extends HttpServlet {
 	    	out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""+liste.get(i).getNbPlace() + "\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
 	    	out.println("<INPUT type = \"submit\" value = \"Details\"</td>");
+	    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idUser\" value =\""+ ((Utilisateur)(session.getAttribute("iduser"))).getIduser() + "\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ liste.get(i).getIdtrajet() + "\">");
+	    	out.println("<INPUT type = \"submit\" value = \"Reserver\"</td>");
 	    	out.println("</tr>");
+	    	
 	    }
 	    out.println("</table>");
 		out.println("</center></body><html>");
