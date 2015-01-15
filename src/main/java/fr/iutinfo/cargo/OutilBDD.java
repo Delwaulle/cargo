@@ -158,7 +158,8 @@ public class OutilBDD {
 		ResultSet rs;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from relation where iduser = '"+iduser+"';");
+			rs = stmt.executeQuery("select * from relation where iduser = '"
+					+ iduser + "';");
 			while (rs.next()) {
 				listeResas.add(new Reservation(rs.getString(1), rs.getInt(2),
 						rs.getInt(3)));
@@ -170,15 +171,18 @@ public class OutilBDD {
 		}
 		return listeResas;
 	}
-	public ArrayList<Reservation> recupererReservations(String iduser,Integer accepte) {
+
+	public ArrayList<Reservation> recupererReservations(String iduser,
+			Integer accepte) {
 		ArrayList<Reservation> liste = new ArrayList<Reservation>();
 		ResultSet rs;
 		try {
 			this.connect();
-			rs = stmt.executeQuery("select * from relation where iduser ='"+iduser+"' and accepte = "+accepte+";");
+			rs = stmt.executeQuery("select * from relation where iduser ='"
+					+ iduser + "' and accepte = " + accepte + ";");
 			while (rs.next()) {
-				liste.add(new Reservation(rs.getString(1), rs.getInt(2),
-						rs.getInt(3)));
+				liste.add(new Reservation(rs.getString(1), rs.getInt(2), rs
+						.getInt(3)));
 			}
 			this.close();
 		} catch (SQLException e) {
@@ -400,7 +404,8 @@ public class OutilBDD {
 			rs = stmt.executeQuery("select * from avis where conducteur ='"
 					+ conducteur + "' ;");
 			while (rs.next()) {
-				Avis avis = new Avis(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4), rs.getInt(5));
+				Avis avis = new Avis(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getString(4), rs.getInt(5));
 				liste.add(avis);
 			}
 			this.close();
@@ -436,6 +441,51 @@ public class OutilBDD {
 		}
 	}
 
+	public ArrayList<Notifications> recupererNotifications(String destinataire) {
+		ArrayList<Notifications> liste = new ArrayList<Notifications>();
+		ResultSet rs;
+		try {
+			this.connect();
+			rs = stmt
+					.executeQuery("select * from notification where destinataire ='"
+							+ destinataire + "' ;");
+			while (rs.next()) {
+				Notifications notif = new Notifications(rs.getInt(1),
+						rs.getString(2), rs.getString(3), rs.getString(4));
+				liste.add(notif);
+			}
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return liste;
+	}
+
+	public boolean envoieNotification(String expediteur, String destinataire,
+			String message) {
+		booleen = true;
+		try {
+			this.connect();
+			String requete = "insert into notification (expediteur,destinataire,message) values ('"
+					+ expediteur
+					+ "','"
+					+ destinataire
+					+ "','"
+					+ message
+					+ "')";
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
+			this.close();
+		} catch (SQLException e) {
+			booleen = false;
+			e.printStackTrace();
+			this.close();
+		} finally {
+			return booleen;
+		}
+	}
+
 	public void creerTables() {
 		try {
 			this.connect();
@@ -444,7 +494,7 @@ public class OutilBDD {
 			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
 			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
 			stmt.executeUpdate("CREATE TABLE avis(idavis INTEGER PRIMARY KEY AUTOINCREMENT,conducteur varchar(20),passager varchar(20),avis text,note integer,foreign key (conducteur) references cargouser(iduser),foreign key (passager) references cargouser(iduser));");
-
+			stmt.executeUpdate("CREATE TABLE notification(idnotif INTEGER PRIMARY KEY AUTOINCREMENT,expediteur text, destinataire text, message text,foreign key (expediteur) references cargouser(iduser),foreign key (destinataire) references cargouser(iduser));");
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -459,6 +509,7 @@ public class OutilBDD {
 			stmt.executeUpdate("DROP TABLE cargouser;");
 			stmt.executeUpdate("DROP TABLE trajet;");
 			stmt.executeUpdate("DROP TABLE avis;");
+			stmt.executeUpdate("DROP TABLE notification;");
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
