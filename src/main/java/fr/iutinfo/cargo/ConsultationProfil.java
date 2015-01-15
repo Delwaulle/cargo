@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/servlet/consultationProfil")
@@ -20,9 +21,9 @@ public class ConsultationProfil extends HttpServlet{
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
 		out.println("<title>Liste des trajets</title></head>");
 		out.println("<body>");
-
+		HttpSession session = req.getSession(true);
 		OutilBDD db = new OutilBDD();
-		String iduser = req.getParameter("idUser");
+		String iduser =((Utilisateur) (session.getAttribute("iduser"))).getIduser();
 		Utilisateur user = db.recupererUtilisateur(iduser);
 
 		res.setContentType("text/html");

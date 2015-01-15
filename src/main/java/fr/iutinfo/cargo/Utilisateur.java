@@ -1,11 +1,11 @@
 package fr.iutinfo.cargo;
 
 public class Utilisateur {
-	String iduser;
-	String nom;
-	String prenom;
-	String numtel;
-	String mail;
+	private String iduser;
+	private String nom;
+	private String prenom;
+	private String numtel;
+	private String mail;
 	
 	public Utilisateur(String iduser, String nom, String prenom, String numtel, String mail){
 		this.iduser=iduser;
