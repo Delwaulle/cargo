@@ -23,19 +23,28 @@ public class ConsultationProfil extends HttpServlet{
 		out.println("<body>");
 		HttpSession session = req.getSession(true);
 		OutilBDD db = new OutilBDD();
-		String iduser =((Utilisateur) (session.getAttribute("iduser"))).getIduser();
-		Utilisateur user = db.recupererUtilisateur(iduser);
+		HttpSession s = req.getSession(true);
+		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
+		String cond=req.getParameter("idcond");
+		String login="";
+		try{
+			login = u.getIduser();
+		}catch(Exception e){
+			res.sendRedirect("../login.html");
+		}
+		
+		Utilisateur conducteur=db.recupererUtilisateur(cond);
 
 		res.setContentType("text/html");
 		out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
 		out.println("<title>Select</title></head>");
 		out.println("<body><center>");
-		out.println("<h1>" + iduser + "</h1><br>");
-		out.println("Nom : " + user.getNom()+"<br>");
-		out.println("Prenom : " + user.getPrenom()+"<br>");
-		out.println("Numéro de téléphone : " + user.getNumtel()+"<br>");
-		out.println("Adresse mail : " + user.getMail()+"<br>");
+		out.println("<h1>" + conducteur.getIduser() + "</h1><br>");
+		out.println("Nom : " + conducteur.getNom()+"<br>");
+		out.println("Prenom : " + conducteur.getPrenom()+"<br>");
+		out.println("Numéro de téléphone : " + conducteur.getNumtel()+"<br>");
+		out.println("Adresse mail : " + conducteur.getMail()+"<br>");
 		out.println("</center></body><html>");
 
 	}
