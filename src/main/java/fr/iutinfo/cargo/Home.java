@@ -57,7 +57,7 @@ public class Home extends HttpServlet {
 		out.println("<FORM METHOD = \"POST\" ACTION = \"AfficherListe\">");
 		out.println("<input type=\"text\" name=\"depart\" class=\"depart\" placeholder=\"Depart ?\"/>");
 		out.println("<input type=\"text\" name=\"arrivee\" class=\"arrive\"  placeholder=\"Arrivee ?\"/>");
-		out.println("<input type=\"date\" name=\"date\" placeholder=\"Date ?\"/>");
+		out.println("<input type=text name=\"date\" placeholder=jj/mm/aaaa>");
 		out.println("<INPUT type = \"submit\" value = \"Rechercher\"/>");
 		out.println("</FORM>");
 		
