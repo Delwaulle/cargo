@@ -120,6 +120,23 @@ public class OutilBDD {
 			this.close();
 		}
 	}
+	
+	public ArrayList<Reservation> recupererReservations(String iduser){
+		List<Reservation> listeResas = new ArrayList<>();
+		ResultSet rs;
+		try {
+			this.connect();
+			rs = stmt.executeQuery("select * from relations;");
+			while (rs.next()) {
+				listeResas.add(new Reservation(rs.getString(1), rs.getInt(2), rs.getInt(3)));
+			}
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			this.close();
+		}
+		return (ArrayList<Reservation>) listeResas;
+	}
 
 	public void ajouterTrajet(String iduser, String villeDepart,
 			String villeArrivee, String dateTrajet, Integer heureDepart,
