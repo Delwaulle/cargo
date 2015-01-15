@@ -57,15 +57,6 @@ public class ListerAvis  extends HttpServlet{
 			out.println("<td>"+avis.get(i).getPassager()+"</td>");
 			out.println("</tr>");
 		}
-		
-		/*
-		 * 
-		 * this.idavis = idavis;
-		this.conducteur = conducteur;
-		this.passager = passager;
-		this.avis = avis;
-		this.note = note;
-		 */
 		out.println("</tbody>");
 		out.println("</body>");
 		out.println("</table>");
