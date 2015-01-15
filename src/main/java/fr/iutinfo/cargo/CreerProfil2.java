@@ -24,7 +24,7 @@ public class CreerProfil2 extends HttpServlet {
 
 		HttpSession s = req.getSession(true);
 
-		String login = req.getParameter("login");
+		String login = req.getParameter("identifiant");
 
 		boolean valide = true;
 
@@ -52,7 +52,7 @@ public class CreerProfil2 extends HttpServlet {
 
 		String prenom = req.getParameter("prenom");
 
-		String numTel = req.getParameter("numTel");
+		String numTel = req.getParameter("tel");
 		boolean numValide = true;
 		for (int i = 0; i < numTel.length(); i++) {
 			if (numTel.charAt(i) < '0' || numTel.charAt(i) > '9') {
@@ -65,7 +65,7 @@ public class CreerProfil2 extends HttpServlet {
 			s.setAttribute("erreurNum", true);
 		}
 
-		String mail = req.getParameter("mail");
+		String mail = req.getParameter("adresse");
 		int at = 0;
 		for (int i = 0; i < mail.length(); i++) {
 			if (mail.charAt(i) == '@')
@@ -79,7 +79,7 @@ public class CreerProfil2 extends HttpServlet {
 		if (valide) {
 			Utilisateur u = new Utilisateur(login, nom, prenom, numTel, mail);
 			OutilBDD o = new OutilBDD();
-			o.ajouterUtilisateur(u, req.getParameter("mdp"));
+			o.ajouterUtilisateur(u, req.getParameter("password"));
 			res.sendRedirect("../login.html");
 		} else {
 			s.setAttribute("erreur", true);
