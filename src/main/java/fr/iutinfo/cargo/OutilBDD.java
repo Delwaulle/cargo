@@ -256,10 +256,13 @@ public class OutilBDD {
 		return u;
 	}
 
-	public void updateProfil(String iduser, String nom, String prenom,
+	public void updateProfil(String nom, String prenom,
 			String numtel, String mail) {
+		try {
+			this.connect();
+			
 		boolean argumentNonNUll = false;
-		String requete = "set ";
+		String requete = "update Utilisateur set ";
 		if (nom != null) {
 			requete += "nom = '" + nom + "'";
 			argumentNonNUll = true;
@@ -291,6 +294,13 @@ public class OutilBDD {
 		if (argumentNonNUll) {
 			requete += ",";
 			argumentNonNUll = false;
+		}
+		System.out.println(requete);
+	    stmt.executeUpdate(requete);
+	    this.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			this.close();
 		}
 
 	}
