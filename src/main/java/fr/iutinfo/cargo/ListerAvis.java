@@ -29,7 +29,8 @@ public class ListerAvis  extends HttpServlet{
 		ArrayList<String>  avis=obdd.recupererAvis(login);
 		ArrayList<String> avisTronc=new ArrayList<String>();
 		out.println("<html>");
-		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><Title> Avis </Title></head>");
+		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet> <link href=../avis.css type=text/css rel=stylesheet>  <Title> Avis </Title></head>");
+		out.println("<body>");
 		out.println("<table class=table table-striped><thead><tr>");
 		out.println("<th>#</th>");
 		out.println("<th>Conducteur</th>");
@@ -53,6 +54,7 @@ public class ListerAvis  extends HttpServlet{
 			out.println("</tr>");
 		}
 		out.println("</tbody>");
+		out.println("</body>");
 		out.println("</table>");
 		
 		

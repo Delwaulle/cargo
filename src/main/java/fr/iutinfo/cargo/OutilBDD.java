@@ -4,6 +4,8 @@ import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class OutilBDD {
 	private Connection con;
 	private Statement stmt;
@@ -133,9 +135,11 @@ public class OutilBDD {
 					+ idtrajet + ",0)";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
+			JOptionPane.showMessageDialog(null,"Votre réservation a été soumise\n au conducteur","Succès", JOptionPane.INFORMATION_MESSAGE);
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Echec de la réservation","Attention", JOptionPane.ERROR_MESSAGE);
 			this.close();
 		}
 	}
@@ -177,9 +181,11 @@ public class OutilBDD {
 					+ heureArrivee + "," + nbPlace + "," + prix + ")";
 			System.out.println(requete);
 			stmt.executeUpdate(requete);
+			JOptionPane.showMessageDialog(null,"Le trajet a été posté","Succès", JOptionPane.INFORMATION_MESSAGE);
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		JOptionPane.showMessageDialog(null,"Echec de l'ajout du trajet","Attention", JOptionPane.ERROR_MESSAGE);
 			this.close();
 		}
 	}
