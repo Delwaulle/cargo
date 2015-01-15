@@ -26,7 +26,7 @@ public class PageReservation extends HttpServlet {
 			res.sendRedirect("../login.html");
 		}
 		List<Reservation> listeResas = db.recupererReservations(login);
-		if (req.getParameter("idUser") != null) {
+		if (u.getIduser() != null) {
 			Trajet tmp;
 			u = db.recupererUtilisateur(req.getParameter("idUser"));
 			out.println("<html> <head> <meta charset=UTF-8>");
