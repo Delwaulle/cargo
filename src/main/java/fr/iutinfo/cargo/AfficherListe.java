@@ -89,45 +89,52 @@ public class AfficherListe extends HttpServlet {
 		out.println("<INPUT type = \"submit\" value = \"Rechercher\"/>");
 		out.println("</FORM>");
 		out.println("</div>");
-		out.println("<table border='3'><tr>");
-		out.print("<th></TH>");
-		out.print("<th>depart</TH>");
-		out.print("<th>arrivee</TH>");
-		out.print("<th>date</TH>");
-		out.print("<th>heure depart</TH>");
-		out.print("<th>heure arrivée</TH>");
-		out.print("<th>nombre de places :</th>");
-		out.print("<th>Prix :</TH>");
-		out.print("<th></TH>");
-		out.print("<th></TH>");
-		out.println("</tr>");
-		for (int i = 0; i < liste.size(); i++) {
-			out.println("<tr>");
-			out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
-			out.println("<INPUT class=form-control type = \"hidden\" name =\"idcond\" value =\""+liste.get(i).getIduser() + "\">");
-	    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
-			out.println("<td class=info>" + liste.get(i).getVilleDepart() + "</td>");
-			out.println("<td class=info>" + liste.get(i).getVilleArrivee() + "</td>");
-			out.println("<td class=info>" + liste.get(i).getDateTrajet() + "</td>");
-			out.println("<td class=info>" + liste.get(i).getHeureDepart() + "</td>");
-			out.println("<td class=info>" + liste.get(i).getHeureArrivee() + "</td>");
-			out.println("<td class=info>" + liste.get(i).getNbPlace() + "</td>");
-			out.println("<td class=info>" + liste.get(i).getPrix() + "</td>");
-			out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"date\" value =\""+liste.get(i).getDateTrajet() + "\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"heureDepart\" value =\""+liste.get(i).getHeureDepart() + "\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"heureArrivee\" value =\""+liste.get(i).getHeureArrivee() + "\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""+liste.get(i).getNbPlace() + "\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
-	    	out.println("<INPUT type = \"submit\" value = \"Details\"></FORM></td>");
-	    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
-	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ liste.get(i).getIdtrajet() + "\">");
-	    	out.println("<INPUT type = \"submit\" value = \"Reserver\"></FORM></td>");
-	    	out.println("</tr>");
+		//Si la liste contient au moins un resultat, alors on l'affiche
+		if(liste.size()>0){
+			out.println("<table border='3'><tr>");
+			out.print("<th></TH>");
+			out.print("<th>depart</TH>");
+			out.print("<th>arrivee</TH>");
+			out.print("<th>date</TH>");
+			out.print("<th>heure depart</TH>");
+			out.print("<th>heure arrivée</TH>");
+			out.print("<th>nombre de places :</th>");
+			out.print("<th>Prix :</TH>");
+			out.print("<th></TH>");
+			out.print("<th></TH>");
+			out.println("</tr>");
+			for (int i = 0; i < liste.size(); i++) {
+				out.println("<tr>");
+				out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
+				out.println("<INPUT class=form-control type = \"hidden\" name =\"idcond\" value =\""+liste.get(i).getIduser() + "\">");
+		    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
+				out.println("<td class=info>" + liste.get(i).getVilleDepart() + "</td>");
+				out.println("<td class=info>" + liste.get(i).getVilleArrivee() + "</td>");
+				out.println("<td class=info>" + liste.get(i).getDateTrajet() + "</td>");
+				out.println("<td class=info>" + liste.get(i).getHeureDepart() + "</td>");
+				out.println("<td class=info>" + liste.get(i).getHeureArrivee() + "</td>");
+				out.println("<td class=info>" + liste.get(i).getNbPlace() + "</td>");
+				out.println("<td class=info>" + liste.get(i).getPrix() + "</td>");
+				out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"date\" value =\""+liste.get(i).getDateTrajet() + "\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"heureDepart\" value =\""+liste.get(i).getHeureDepart() + "\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"heureArrivee\" value =\""+liste.get(i).getHeureArrivee() + "\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""+liste.get(i).getNbPlace() + "\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
+		    	out.println("<INPUT type = \"submit\" value = \"Details\"></FORM></td>");
+		    	out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
+		    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ liste.get(i).getIdtrajet() + "\">");
+		    	out.println("<INPUT type = \"submit\" value = \"Reserver\"></FORM></td>");
+		    	out.println("</tr>");
+			}
+			out.println("</table>");
 		}
-		out.println("</table>");
+		//Sinon on retourne un message
+		else {
+			out.println("Aucune recherche ne correspond aux termes de recherche spécifiés");
+		}
 		out.println("</center></body><html>");
 
 	}
