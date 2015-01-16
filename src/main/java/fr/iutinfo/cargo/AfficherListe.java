@@ -91,7 +91,7 @@ public class AfficherListe extends HttpServlet {
 		out.println("</div>");
 		//Si la liste contient au moins un resultat, alors on l'affiche
 		if(liste.size()>0){
-			out.println("<table border='3'><tr>");
+			out.println("<table class='affiche-table' border='3'><tr>");
 			out.print("<th></TH>");
 			out.print("<th>depart</TH>");
 			out.print("<th>arrivee</TH>");
@@ -107,12 +107,12 @@ public class AfficherListe extends HttpServlet {
 				out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/consultationProfil\">");
 				out.println("<INPUT class=form-control type = \"hidden\" name =\"idcond\" value =\""+liste.get(i).getIduser() + "\">");
 		    	out.println("<INPUT type = \"submit\" value = \"Voir profil du conducteur\"></FORM></td>");
-				out.println("<td class=info>" + liste.get(i).getVilleDepart() + "</td>");
-				out.println("<td class=info>" + liste.get(i).getVilleArrivee() + "</td>");
-				out.println("<td class=info>" + liste.get(i).getDateTrajet() + "</td>");
-				out.println("<td class=info>" + liste.get(i).getHeureDepart() + "</td>");
-				out.println("<td class=info>" + liste.get(i).getNbPlace() + "</td>");
-				out.println("<td class=info>" + liste.get(i).getPrix() + "</td>");
+				out.println("<td class=info1>" + liste.get(i).getVilleDepart() + "</td>");
+				out.println("<td class=info1>" + liste.get(i).getVilleArrivee() + "</td>");
+				out.println("<td class=info1>" + liste.get(i).getDateTrajet() + "</td>");
+				out.println("<td class=info1>" + liste.get(i).getHeureDepart() + "</td>");
+				out.println("<td class=info1>" + liste.get(i).getNbPlace() + "</td>");
+				out.println("<td class=info1>" + liste.get(i).getPrix() + "</td>");
 				out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
 		    	out.println("<INPUT type = \"hidden\" name =\"depart\" value =\""+liste.get(i).getVilleDepart() + "\">");
 		    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");

@@ -47,8 +47,8 @@ public class Home extends HttpServlet {
 			out.println("<ul>");
 			out.println("<li><a href=/servlet/ListerNotifications>Notifications</a></li>");
 			out.println("<li><a href=/servlet/EditerProfil>Editer Profil</a></li>");
-			out.println("<li><a href=/servlet/PageReservation>Réservation</a></li>");
-			out.println("<li><a href=/servlet/HistoriqueTrajet>Historique des trajets</a></li>");
+			out.println("<li><a href=/servlet/PageReservation>Reservation</a></li>");
+			out.println("<li><a href=/servlet/HistoriqueTrajet>Historique trajets</a></li>");
 			out.println("<li><a href=\"servlet/Deconnect\">Se deconnecter </a></li>");
 			
 			out.println("</ul>");
@@ -102,9 +102,8 @@ public class Home extends HttpServlet {
 
 		out.println("<footer>");
 		out.println("<div class=\"barre-menu-haut\">");
-		out.println("<h3>Infos Pratiques<h3>");
-		out.println("<h3><a href=contact.html class=contact>Contact </a></h3>");
-		out.println("<h3>NewsLetter<h3>");
+		out.println("<center><h3><a href=contact.html class=contact>Contact </a></h3></center>");
+		
 		
 		out.println("</div>");
 		out.println("</footer>");
