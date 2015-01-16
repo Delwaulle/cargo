@@ -19,7 +19,7 @@ public class ValiderProposition extends HttpServlet {
 		HttpSession s = req.getSession(true);
 		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
 		String login = u.getIduser();
-		if(login==null){ res.sendRedirect("../servlet/Home"); }
+		if(login==null){ res.sendRedirect(""); }
 
 		out.println("<html>");
 		out.println("<head><meta charset=UTF-8><Title> Aperçu trajet </Title></head>");
@@ -30,6 +30,9 @@ public class ValiderProposition extends HttpServlet {
 		String prix = req.getParameter("prix");
 		// String heureA=req.getParameter("villeD");
 		String heureD = req.getParameter("heureD");
+		if(villeD==null ||villeA ==null || date==null){
+			res.sendRedirect("/servlet/ProposerTrajet");
+		}
 		out.println("<table>" + "<tr><th>" + "Pseudo</th><th>"
 				+ "Ville de départ</th> <th>" + "Ville d'arrivée</th><th>"
 				+ "Date</th> <th>" + "Heure de départ</th> <th>"

@@ -52,7 +52,12 @@ public class ListerAvis  extends HttpServlet{
 			out.println("<tr>");
 			out.println("<td>"+i+"</td>");
 			out.println("<td>"+avis.get(i).getConducteur()+"</td>");
-			out.println("<td>"+avis.get(i).getNote()+"</td>");
+			int note=avis.get(i).getNote();
+			out.println("<td>");
+			for(int j=0;j<note;j++){
+				out.println("<img src =../img/star.png alt=/>");
+			}
+			out.println("<h2>/5</h2></td>");
 			out.println("<td>"+avisTronc.get(i)+"</td>");
 			out.println("<td>"+avis.get(i).getPassager()+"</td>");
 			out.println("</tr>");

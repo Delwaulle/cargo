@@ -51,6 +51,6 @@ public class PosterProposition extends HttpServlet {
 			out.println(liste.get(i).getVilleArrivee());
 			out.println(liste.get(i).getDateTrajet());
 		}
-		res.sendRedirect("Home");
+		res.sendRedirect("/servlet/PageReservation");
 	}
 }
