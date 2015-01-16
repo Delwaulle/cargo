@@ -27,7 +27,7 @@ public class Home extends HttpServlet {
 		out.println("<nav class=\"site-menu\">");
 		out.println("<ul class=\"menu-lien\">");
 		out.println("<li class =\"menu-btn\">");
-		out.println("<a href=\"ProposerTrajet\" class=\"prop-btn\">Proposer un trajet</a>");
+		out.println("<a href=\"servlet/ProposerTrajet\" class=\"prop-btn\">Proposer un trajet</a>");
 		out.println("</li>");
 		
 		if(u == null){
@@ -82,7 +82,7 @@ public class Home extends HttpServlet {
 		out.println("</header>");
 		out.println("<div class=\"recherche\">");
 		out.println("<h2>Je cherche une place libre</h2>");
-		out.println("<FORM METHOD = \"POST\" ACTION = \"AfficherListe\">");
+		out.println("<FORM METHOD = \"POST\" ACTION = \"servlet/AfficherListe\">");
 		out.println("<input type=\"text\" name=\"depart\" class=\"depart\" placeholder=\"Depart ?\"/>");
 		out.println("<input type=\"text\" name=\"arrivee\" class=\"arrive\"  placeholder=\"Arrivee ?\"/>");
 		out.println("<input type=text name=\"date\" placeholder=jj/mm/aaaa>");
