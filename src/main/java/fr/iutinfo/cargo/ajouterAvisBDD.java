@@ -19,7 +19,7 @@ public class ajouterAvisBDD extends HttpServlet{
 		res.setContentType("text/html");
 		out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
-		out.println("<title>Liste des trajets</title></head>");
+		out.println("<title>Avis</title></head>");
 		out.println("<body>");
 		HttpSession session = req.getSession(true);
 		OutilBDD o = new OutilBDD();

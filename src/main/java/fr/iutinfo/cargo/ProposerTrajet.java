@@ -107,10 +107,9 @@ public class ProposerTrajet extends HttpServlet {
 				"</div>");
 		
 		out.println("<div>"+
-				"<form method=get action=/servlet/Home>"+
 				"<div class=boutton>"+
-				"<button type=submit class=btn btn-warning>annuler</button>"+
-				"</div></form>"+
+				"<button type=reset class=btn btn-warning>Effacer</button>"+
+				"</div>"+
 				"<div class=boutton>"+
 				"<button id=suivant type=submit class=btn btn-warning >Suivant</button>"+
 				"</div>"+
