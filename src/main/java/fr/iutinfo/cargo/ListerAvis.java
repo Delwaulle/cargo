@@ -18,6 +18,7 @@ public class ListerAvis  extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		HttpSession s = req.getSession(true);
+		String co=req.getParameter("idconducteur");
 		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
 		String login="";
 		try{
@@ -26,7 +27,7 @@ public class ListerAvis  extends HttpServlet{
 			res.sendRedirect("../login.html");
 		}
 		OutilBDD obdd=new OutilBDD();
-		ArrayList<Avis>  avis=obdd.recupererAvis(login);
+		ArrayList<Avis>  avis=obdd.recupererAvis(co);
 		out.println("<html>");
 		out.println("<head><meta charset=UTF-8><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet> <link href=../img.css type=text/css rel=stylesheet><link href=../avis.css type=text/css rel=stylesheet>  <Title> Avis </Title></head>");
 		out.println("<body>");
