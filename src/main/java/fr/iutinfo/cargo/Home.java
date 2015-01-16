@@ -45,7 +45,7 @@ public class Home extends HttpServlet {
 			out.println("<li><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
 			out.println("<ul>");
 			out.println("<li><a href=\"#\">Voir Profil</a></li>");
-			out.println("<li><a href=\"#\">Notifications</a></li>");
+			out.println("<li><a href=\"servlet/ListerNotifications\">Notifications</a></li>");
 			out.println("</ul>");
 			out.println("</li>");
 			out.println("</ul>");
