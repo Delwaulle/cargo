@@ -38,10 +38,10 @@ public class ValiderProposition extends HttpServlet {
 				+ "Ville de départ</th> <th>" + "Ville d'arrivée</th><th>"
 				+ "Date</th> <th>" + "Heure de départ</th> <th>"
 				+ "Nombre de place(s) disponible(s)</th> <th>"
-				+ "Prix</th><td>" + login
+				+ "Prix</th><td></tr><tr>" + login
 				+ "</td><td>" + villeD + "</td><td>" + villeA + "</td><td>"
 				+ date + "</td><td>" + heureD + "</td><td>" + nbPlaces
-				+ "</td><td>" + prix + "</td></tr><tr><td>");
+				+ "</td><td>" + prix + "</td></tr><td>");
 		out.println("<FORM method=get action=../servlet/PosterProposition>");
 
 		out.println("<input type =hidden name=villeD value=" + villeD + ">");
