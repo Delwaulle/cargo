@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
-@WebServlet("/servlet/ConsultationProfil")
+@WebServlet("/servlet/consultationProfil")
 public class ConsultationProfil extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse res)
