@@ -174,7 +174,28 @@ public class OutilBDD {
 		}
 		return listeResas;
 	}
+	public boolean updateReservation(String iduser, Integer idtrajet, Integer accepte){
+		booleen = true;
+		try {
+			this.connect();
+			String requete = "UPDATE relation SET ACCEPTE="+accepte+" where iduser = '"+iduser+"' and idtrajet = '"+idtrajet+"';";
+			System.out.println(requete);
+			stmt.executeUpdate(requete);
+			JOptionPane.showMessageDialog(null,
+					"Réservation validée",
+					"Succès", JOptionPane.INFORMATION_MESSAGE);
+			this.close();
+		} catch (SQLException e) {
+			booleen = false;
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Réservation refusée",
+					"Attention", JOptionPane.ERROR_MESSAGE);
+			this.close();
 
+		} finally {
+			return booleen;
+		}
+	}
 	public ArrayList<Reservation> recupererReservations(String iduser,
 			Integer accepte) {
 		ArrayList<Reservation> liste = new ArrayList<Reservation>();
