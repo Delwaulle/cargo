@@ -17,10 +17,6 @@ public class ConsultationProfil extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
-		out.println("<html><head><meta charset=UTF-8>");
-		out.println("<link rel=stylesheet type=text/css href=style.css>");
-		out.println("<title>Liste des trajets</title></head>");
-		out.println("<body>");
 		HttpSession session = req.getSession(true);
 		OutilBDD db = new OutilBDD();
 		HttpSession s = req.getSession(true);
@@ -34,17 +30,75 @@ public class ConsultationProfil extends HttpServlet {
 		}
 
 		Utilisateur conducteur = db.recupererUtilisateur(cond);
-
+		
 		res.setContentType("text/html");
-		out.println("<html><head><meta charset=UTF-8>");
-		out.println("<link rel=stylesheet type=text/css href=style.css>");
-		out.println("<title>Select</title></head>");
-		out.println("<body><center>");
-		out.println("<h1>" + conducteur.getIduser() + "</h1><br>");
-		out.println("Nom : " + conducteur.getNom() + "<br>");
-		out.println("Prenom : " + conducteur.getPrenom() + "<br>");
-		out.println("Numéro de téléphone : " + conducteur.getNumtel() + "<br>");
-		out.println("Adresse mail : " + conducteur.getMail() + "<br>");
+		
+		
+		out.println("<!DOCTYPE html>");
+		out.println("<html lang=\"fr\">");
+		out.println("<head>");
+		out.println("<title>Détails trajet</title>");
+		out.println("<meta charset='utf-8'>");
+		out.println("<link rel=\"stylesheet\" href=\"../index.css\" >");
+		out.println("</head>" +
+				"<body>");
+		out.println("<header class=\"entete\">");
+		out.println("<div class=\"header-containt\">");
+		out.println("<a href='../..' class=\"logo\"><img src=\"../logo.jpg\" alt=\"CarGo !\"></a>");
+		out.println("<nav class=\"site-menu\">");
+		out.println("<ul class=\"menu-lien\">");
+		out.println("<li class =\"menu-btn\">");
+		out.println("<a href=\"servlet/ProposerTrajet\" class=\"prop-btn\">Proposer un trajet</a>");
+		out.println("</li>");
+		
+		if(u == null){
+			out.println("<li class=\"inscription\">");
+			out.println("<a href=\"../inscription.html\" class=\"inscription\">S'inscrire  </a>");
+			out.println("<span \"pipe\"> | </span>");
+			out.println("</li>");
+			out.println("<li class=\"connexion\">");
+			out.println("<a href=\"../login.html\" class=\"connexion\">Se connecter </a>");
+			out.println("</li>");
+			
+			
+		} else {
+			out.println("<li class=\"inscription\">");
+			out.println("<ul id=\"menu-demo2\">");
+			out.println("<li class='bonjour'><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
+			out.println("<ul>");
+			out.println("<li><a href=/servlet/ListerNotifications>Notifications</a></li>");
+			out.println("<li><a href=/servlet/EditerProfil>Editer Profil</a></li>");
+			out.println("<li><a href=/servlet/PageReservation>Reservation</a></li>");
+			out.println("<li><a href=/servlet/HistoriqueTrajet>Historique trajets</a></li>");
+			out.println("<li><a href=\"servlet/Deconnect\">Se deconnecter </a></li>");
+			
+			out.println("</ul>");
+			out.println("</li>");
+			out.println("</ul>");
+			 
+			
+			
+		}
+		
+		out.println("</ul>");
+		out.println("</nav>");
+		out.println("</div>");
+		out.println("</header>");
+		out.println("<div class='blabla'");
+		
+		out.println("<h1> Informations sur Conducteur  </h1> ");
+		
+		out.println("<h2>Nom </h2><br>");
+		out.println("<h3>"+conducteur.getNom()+"</h3>");
+		out.println("<h2>Prenom </h2><br>");
+		out.println("<h3>"+conducteur.getPrenom()+"</h3>");
+		out.println("<h2>Numero tel </h2><br>");
+		out.println("<h3>"+conducteur.getNumtel()+"</h3>");
+		out.println("<h2>Adresse mail </h2><br>");
+		out.println("<h3>"+conducteur.getMail()+"</h3><br><br><br><br>");
+	
+		
+		
 
 		out.println("<form method=\"post\" action=\"/servlet/ajouterAvisBDD\">");
 		out.println("<div class=input>"
@@ -64,12 +118,14 @@ public class ConsultationProfil extends HttpServlet {
 		out.println("<li>");
 		out.println("<a href=/servlet/ListerAvis> Consulter les avis</a></li>");
 		out.println("</form>");
+		out.println("</div>");
+		
+
+	
 		
 		
 		
-		
-		
-		out.println("</center></body><html>");
+		out.println("</div></body></html>");
 		
 	}
 }

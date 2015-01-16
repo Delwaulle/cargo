@@ -95,7 +95,7 @@ public class DetailsTrajet extends HttpServlet {
 			out.println("<td>"+req.getParameter("prix")+"</td>");
 			out.println("</tr>");
 			
-			out.println("<table>");
+			out.println("</table>");
 			out.println("</div></body></html>");
 		
 	}
