@@ -1,3 +1,16 @@
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
 *{}
 header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
 .logo img{display:block;width:175px;float:left;border-right:1px solid black}
@@ -28,4 +41,443 @@ h2{margin-left:8px}
 
 .barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
 .barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+*{}
+header{width:900px;margin-left:auto;margin-right:auto;background-color:#dcd9e1 ;padding-bottom:25px;border-bottom:1px solid black;height:50px}
+.logo img{display:block;width:175px;float:left;border-right:1px solid black}
+.header-content{display:inline-block;}
+.site-menu{display:block;margin:17px}
+.menu-lien{display:block ;font-size:14pt; text-align:right;line-height:80px}
+.menu-btn{width:400px;display:inline-block ; float:left ; padding : 0 ; margin-bottom:10px;} 
+.menu-btn a{border-radius: 10px;text-decoration:none;margin-right:150px;;color:white;;padding:5px;}
+.reche-btn{background-color:#69ca90}
+.prop-btn{background-color:orange}
+.reche-btn:hover{box-shadow:0 1px 0 inset}
+.prop-btn:hover{box-shadow:0 1px 0 inset}
+.inscription{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none;}
+.inscription:hover{color:#08c}
+.connexion:hover{color:#08c}
+.connexion{display:inline-block;color:#333;padding : 0 ; margin-top:0;text-decoration:none}
+span{margin-left:10px;margin-right:10px}
+
+
+.recherche{width:900px ; margin-left:auto;margin-right:auto;background-color:#69ca90 ;padding-bottom:25px;padding-top:1px}
+form {margin-left : auto ; margin-right : auto ; }
+input{display :inline-block ; width : 210px ; height : 30px ; margin : 5px ; border-radius:3px;border:1px solid #69ca90}
+input[type="submit"]{height : 34px}
+input[type="submit"]:hover{box-shadow:0 1px 0 inset}
+h2{margin-left:8px}
+
+.image{width:950px ; margin-left:auto;margin-right:auto;}
+
+.barre-menu-haut{display:block;margin-left:auto;margin-right:auto;width:900px;height:30px; background-color:#69ca90;padding-bottom:30px}
+.barre-menu-haut h3{display:inline-block;margin-left:100px;}
+
+
+#menu-demo2{margin-top:15px}
+
+#menu-demo2, #menu-demo2 ul{
+
+padding:0;
+list-style:none;
+text-align:center;
+}
+#menu-demo2 li{
+display:inline-block;
+position:relative;
+border-radius:8px 8px 0 0;
+}
+
+#menu-demo2 ul li{
+display:inherit;
+border-radius:0;
+}
+#menu-demo2 ul li:hover{
+border-radius:0;
+}
+#menu-demo2 ul li:last-child{
+border-radius:0 0 8px 8px;
+}
+#menu-demo2 ul{
+position:absolute;
+max-height:0;
+left: 0;
+right: 0;
+overflow:hidden;
+-moz-transition: .8s all .3s;
+-webkit-transition: .2s all .3s;
+transition: .8s all .3s;
+}
+#menu-demo2 li:hover ul{
+max-height:15em;
+}
+/* background des liens menus */
+#menu-demo2 li:first-child{
+background-color: #65537A;
+background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
+background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
+}
+#menu-demo2 li:nth-child(2){
+background-color: #729EBF;
+background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
+}
+#menu-demo2 li:nth-child(3){
+background-color: #F6AD1A;
+background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
+background-image:linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
+}
+#menu-demo2 li:last-child{
+
+background-color: #CFFF6A;
+background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
+background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
+}
+/* background des liens sous menus */
+
+#menu-demo2 li:last-child li{
+background:gray;
+}
+/* background des liens menus et sous menus au survol */
+#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
+background:#CFFF6A;
+}
+/* les a href */
+#menu-demo2 a{
+text-decoration:none;
+display:block;
+height:60px;
+padding:0px 13px;
+color:#fff;
+text-align:center;
+vertical-align:middle;
+font-family:arial;
+}
+#menu-demo2 ul a{
+padding:0px 0px;
+}
+#menu-demo2 li:hover li a{
+color:#fff;
+text-transform:inherit;
+}
+#menu-demo2 li:hover a, #menu-demo2 li li:hover a{
+color:#000;
+}
 
