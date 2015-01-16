@@ -18,7 +18,7 @@ public class ListerAvis  extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		HttpSession s = req.getSession(true);
-		String co=req.getParameter("idconducteur");
+		String co=ConsultationProfil.cond;
 		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
 		String login="";
 		try{

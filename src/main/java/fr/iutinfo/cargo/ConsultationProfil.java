@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/servlet/consultationProfil")
 public class ConsultationProfil extends HttpServlet {
 
+	public static String cond="";
 	public void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
@@ -21,7 +22,8 @@ public class ConsultationProfil extends HttpServlet {
 		OutilBDD db = new OutilBDD();
 		HttpSession s = req.getSession(true);
 		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
-		String cond = req.getParameter("idcond");
+		cond = req.getParameter("idcond");
+		System.out.println("cc"+cond);
 		String login = "";
 		try {
 			login = u.getIduser();
@@ -111,7 +113,7 @@ public class ConsultationProfil extends HttpServlet {
 		out.println("<label for=\"ameliorer\">Donner un avis sur ce conducteur :</label><br />");
 		out.println("<textarea name=\"ameliorer\" id=\"ameliorer\"></textarea>");
 		out.println("</p>");
-		out.println("<INPUT type = \"hidden\" name=\"idconducteur\" value = \""+cond+"\"/>");
+		out.println("<INPUT type = \"hidden\" name=idconducteur value = \""+cond+"\"/>");
 
 		out.println("<INPUT type = \"submit\" value = \"Noter\"/>");
 		
