@@ -12,7 +12,9 @@ public class Home extends HttpServlet {
 		PrintWriter out = res.getWriter();
 	    HttpSession session = req.getSession(true);
 	    Utilisateur u = (Utilisateur) session.getAttribute("iduser");
+	    OutilBDD o = new OutilBDD();
 	    
+	    o.creerTables();
 	    
 		out.println("<!DOCTYPE html>");
 		out.println("<html lang=\"fr\">");

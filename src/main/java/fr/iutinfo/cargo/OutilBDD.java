@@ -488,16 +488,22 @@ public class OutilBDD {
 			return booleen;
 		}
 	}
+	
+	
 
 	public void creerTables() {
 		try {
 			this.connect();
-
-			stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
-			stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
-			stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
-			stmt.executeUpdate("CREATE TABLE avis(idavis INTEGER PRIMARY KEY AUTOINCREMENT,conducteur varchar(20),passager varchar(20),avis text,note integer,foreign key (conducteur) references cargouser(iduser),foreign key (passager) references cargouser(iduser));");
-			stmt.executeUpdate("CREATE TABLE notification(idnotif INTEGER PRIMARY KEY AUTOINCREMENT,expediteur text, destinataire text, message text,foreign key (expediteur) references cargouser(iduser),foreign key (destinataire) references cargouser(iduser));");
+			ResultSet rs;
+			rs = stmt.executeQuery("SELECT * FROM database.db WHERE type='table'");
+			
+			if(rs.next()){
+				stmt.executeUpdate("CREATE TABLE relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
+				stmt.executeUpdate("CREATE TABLE cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
+				stmt.executeUpdate("CREATE TABLE trajet(idtrajet INTEGER PRIMARY KEY AUTOINCREMENT, iduser varchar(20), villedepart text, villearrivee text, datetrajet date, hdep int, harr int, nbplace int, prix float,foreign key (iduser) references cargouser(iduser));");
+				stmt.executeUpdate("CREATE TABLE avis(idavis INTEGER PRIMARY KEY AUTOINCREMENT,conducteur varchar(20),passager varchar(20),avis text,note integer,foreign key (conducteur) references cargouser(iduser),foreign key (passager) references cargouser(iduser));");
+				stmt.executeUpdate("CREATE TABLE notification(idnotif INTEGER PRIMARY KEY AUTOINCREMENT,expediteur text, destinataire text, message text,foreign key (expediteur) references cargouser(iduser),foreign key (destinataire) references cargouser(iduser));");
+			}
 			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -525,6 +531,9 @@ public class OutilBDD {
 		creerTables();
 		System.out.println("Database reinitialisee");
 	}
+	
+	
+	
 
 	public static void main(String[] args) {
 		new OutilBDD().remettreAZeroLaBDD();
