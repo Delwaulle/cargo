@@ -28,10 +28,6 @@ public class ValiderProposition extends HttpServlet {
 		String date = req.getParameter("date");
 		String nbPlaces = req.getParameter("nbPlaces");
 		String prix = req.getParameter("prix");
-		if (prix.contains(",")){
-			prix.replace(",",".");
-		}
-		// String heureA=req.getParameter("villeD");
 		String heureD = req.getParameter("heureD");
 		if(villeD==null ||villeA ==null || date==null){
 			res.sendRedirect("/servlet/ProposerTrajet");

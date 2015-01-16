@@ -27,7 +27,7 @@ public class HistoriqueTrajet extends HttpServlet {
 		HttpSession s = req.getSession(true);
 		Utilisateur u = (Utilisateur) s.getAttribute("iduser");
 		OutilBDD o = new OutilBDD();
-		if (u==null) res.sendRedirect("Home");
+		if (u==null) res.sendRedirect("..");
 		List<Reservation> listreserv = new ArrayList<Reservation>();
 		listreserv = o.recupererReservations(u.getIduser(), 1);
 		out.println("<table border='3'><tr>");

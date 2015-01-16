@@ -28,12 +28,16 @@ public class PosterProposition extends HttpServlet {
 		String date = req.getParameter("date");
 		String heureA = req.getParameter("villeD");
 		String voiture = req.getParameter("voiture");
+		String prixx=req.getParameter("prix");
 		int nbPlaces;
+		if (prixx.contains(",")){
+			prixx.replace(",",".");
+		}
 		double prix;
 		int heureD;
 		try {
 			nbPlaces = Integer.parseInt(req.getParameter("nbPlaces"));
-			prix = Double.parseDouble(req.getParameter("prix"));
+			prix = Double.parseDouble(prixx);
 			heureD = Integer.parseInt(req.getParameter("heureD"));
 		} catch (NumberFormatException e) {
 			System.out.println("catch");
