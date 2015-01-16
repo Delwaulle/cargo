@@ -19,7 +19,7 @@ public class OutilBDD {
 	private void connect() {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			con = DriverManager.getConnection("jdbc:sqlite:"+System.getProperty("java.io.tmpdir")+System.getProperty("file.separator")+"CarGOdatabase.db");
+			con = DriverManager.getConnection("jdbc:sqlite:database.db");
 			stmt = con.createStatement();
 			if (stmt == null) {
 				throw new Exception("Statement null");
