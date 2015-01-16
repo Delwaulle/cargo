@@ -64,6 +64,10 @@ public class OutilBDD {
 			String villeDepart, String villeArrivee, String dateTrajet,
 			Integer heureDepart, Integer heureArrivee, Integer nbPlace,
 			Double prix) {
+		iduser = iduser.replace('\'', ' ');
+		villeDepart = villeDepart.replace('\'', ' ');
+		villeArrivee = villeArrivee.replace('\'', ' ');
+		dateTrajet = dateTrajet.replace('\'', ' ');
 		ArrayList<Trajet> liste = new ArrayList<Trajet>();
 		ResultSet rs;
 		String where = " ";
@@ -136,6 +140,7 @@ public class OutilBDD {
 	}
 
 	public boolean reserverTrajet(String iduser, Integer idtrajet) {
+		iduser = iduser.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
@@ -160,6 +165,7 @@ public class OutilBDD {
 	}
 
 	public ArrayList<Reservation> recupererReservations(String iduser) {
+		iduser = iduser.replace('\'', ' ');
 		ArrayList<Reservation> listeResas = new ArrayList<Reservation>();
 		ResultSet rs;
 		try {
@@ -178,6 +184,8 @@ public class OutilBDD {
 		return listeResas;
 	}
 	public boolean updateReservation(String iduser, Integer idtrajet, Integer accepte){
+		iduser = iduser.replace('\'', ' ');
+		
 		booleen = true;
 		try {
 			this.connect();
@@ -201,6 +209,7 @@ public class OutilBDD {
 	}
 	public ArrayList<Reservation> recupererReservations(String iduser,
 			Integer accepte) {
+		iduser = iduser.replace('\'', ' ');
 		ArrayList<Reservation> liste = new ArrayList<Reservation>();
 		ResultSet rs;
 		try {
@@ -222,6 +231,11 @@ public class OutilBDD {
 	public boolean ajouterTrajet(String iduser, String villeDepart,
 			String villeArrivee, String dateTrajet, Integer heureDepart,
 			Integer heureArrivee, Integer nbPlace, Double prix, String voiture) {
+		iduser = iduser.replace('\'', ' ');
+		villeDepart = villeDepart.replace('\'', ' ');
+		villeArrivee = villeArrivee.replace('\'', ' ');
+		dateTrajet = dateTrajet.replace('\'', ' ');
+		voiture = voiture.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
@@ -271,6 +285,8 @@ public class OutilBDD {
 	}
 
 	public boolean ajouterUtilisateur(String iduser, String mdp) {
+		iduser = iduser.replace('\'', ' ');
+		mdp = mdp.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
@@ -289,6 +305,7 @@ public class OutilBDD {
 	}
 
 	public boolean ajouterUtilisateur(Utilisateur u, String mdp) {
+		mdp = mdp.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
@@ -352,6 +369,7 @@ public class OutilBDD {
 	}
 
 	public Utilisateur recupererUtilisateur(String idUser) {
+		idUser = idUser.replace('\'', ' ');
 		ResultSet rs;
 		Utilisateur u = null;
 		try {
@@ -371,6 +389,10 @@ public class OutilBDD {
 
 	public boolean updateProfil(String nom, String prenom, String numtel,
 			String mail) {
+		nom = nom.replace('\'', ' ');
+		prenom = prenom.replace('\'', ' ');
+		numtel = numtel.replace('\'', ' ');
+		mail=mail.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
@@ -424,6 +446,7 @@ public class OutilBDD {
 
 	/*---------------------------------------------------------------------------------------*/
 	public ArrayList<Avis> recupererAvis(String conducteur) {
+		conducteur = conducteur.replace('\'', ' ');
 		ArrayList<Avis> liste = new ArrayList<Avis>();
 		ResultSet rs;
 		try {
@@ -445,6 +468,9 @@ public class OutilBDD {
 
 	public boolean ajouterAvis(String conducteur, String passager, String avis,
 			Integer note) {
+		conducteur = conducteur.replace('\'', ' ');
+		passager = passager.replace('\'', ' ');
+		avis=avis.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
@@ -469,6 +495,7 @@ public class OutilBDD {
 	}
 
 	public ArrayList<Notifications> recupererNotifications(String destinataire) {
+		destinataire = destinataire.replace('\'', ' ');
 		ArrayList<Notifications> liste = new ArrayList<Notifications>();
 		ResultSet rs;
 		try {
@@ -491,6 +518,9 @@ public class OutilBDD {
 
 	public boolean envoieNotification(String expediteur, String destinataire,
 			String message) {
+		expediteur = expediteur.replace('\'', ' ');
+		destinataire = destinataire.replace('\'', ' ');
+		message = message.replace('\'', ' ');
 		booleen = true;
 		try {
 			this.connect();
