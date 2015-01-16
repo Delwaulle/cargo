@@ -31,7 +31,7 @@ public class Authentification extends HttpServlet {
 		      Utilisateur u = new Utilisateur(rs.getString("iduser"),rs.getString("nom"),rs.getString("prenom"),rs.getString("numtel"),rs.getString("mail"));
 		      session.setAttribute("iduser", u);
 		      con.close();
-		      res.sendRedirect(".");
+		      res.sendRedirect("");
 		  } else { 
 		      con.close();
 		      out.println("Login/mdp incorrect");
