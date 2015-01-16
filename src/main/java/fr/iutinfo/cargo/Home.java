@@ -6,14 +6,14 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @SuppressWarnings("serial")
-@WebServlet("")
+@WebServlet("/index")
 public class Home extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
 	    HttpSession session = req.getSession(true);
 	    Utilisateur u = (Utilisateur) session.getAttribute("iduser");
 	    
-	    new OutilBDD().creerTables();
+	    //new OutilBDD().creerTables();
 	    
 		out.println("<!DOCTYPE html>");
 		out.println("<html lang=\"fr\">");
