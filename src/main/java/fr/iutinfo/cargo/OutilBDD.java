@@ -493,6 +493,7 @@ public class OutilBDD {
 
 	public void creerTables() {
 		try {
+				stmt.executeUpdate("CREATE DATABASE database.db");
 			this.connect();
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS relation(iduser varchar(20),idtrajet INTEGER, accepte Integer, foreign key (iduser) references cargouser(iduser),foreign key (idtrajet) references trajet(idtrajet),PRIMARY KEY(idtrajet,iduser))");
 				stmt.executeUpdate("CREATE TABLE IF NOT EXISTS cargouser(iduser varchar(20) primary key, mdp text, nom text, prenom text, numtel text, mail text);");
