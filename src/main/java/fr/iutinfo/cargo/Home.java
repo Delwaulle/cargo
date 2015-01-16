@@ -12,9 +12,6 @@ public class Home extends HttpServlet {
 		PrintWriter out = res.getWriter();
 	    HttpSession session = req.getSession(true);
 	    Utilisateur u = (Utilisateur) session.getAttribute("iduser");
-	    OutilBDD o = new OutilBDD();
-	    
-	    o.creerTables();
 	    
 		out.println("<!DOCTYPE html>");
 		out.println("<html lang=\"fr\">");
@@ -104,7 +101,7 @@ public class Home extends HttpServlet {
 		out.println("<div class=\"barre-menu-haut\">");
 		out.println("<h3>Infos Pratiques<h3>");
 		out.println("<h3>A propos<h3>");
-		out.println("<h3>NewsLetter<h3>");
+		out.println("<h3>"+System.getProperty("user.dir")+"<h3>");
 		
 		out.println("</div>");
 		out.println("</footer>");
