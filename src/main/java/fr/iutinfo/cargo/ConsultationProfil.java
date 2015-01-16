@@ -61,7 +61,12 @@ public class ConsultationProfil extends HttpServlet {
 
 		out.println("<INPUT type = \"submit\" value = \"Noter\"/>");
 		out.println("</form>");
+		
+		
+		
+		
+		
 		out.println("</center></body><html>");
-
+		
 	}
 }

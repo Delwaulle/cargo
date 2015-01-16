@@ -424,7 +424,7 @@ public class OutilBDD {
 		booleen = true;
 		try {
 			this.connect();
-			String requete = "insert into relation (conducteur,passager,avis,note) values ('"
+			String requete = "insert into avis (conducteur,passager,avis,note) values ('"
 					+ conducteur
 					+ "','"
 					+ passager
