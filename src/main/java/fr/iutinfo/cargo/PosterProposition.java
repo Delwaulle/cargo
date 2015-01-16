@@ -31,7 +31,7 @@ public class PosterProposition extends HttpServlet {
 		String prixx=req.getParameter("prix");
 		int nbPlaces;
 		if (prixx.contains(",")){
-			prixx.replace(",",".");
+			prixx=prixx.replace(",",".");
 		}
 		double prix;
 		int heureD;
@@ -55,6 +55,6 @@ public class PosterProposition extends HttpServlet {
 			out.println(liste.get(i).getVilleArrivee());
 			out.println(liste.get(i).getDateTrajet());
 		}
-		res.sendRedirect("/servlet/HistoriqueTrajet");
+		res.sendRedirect("..");
 	}
 }

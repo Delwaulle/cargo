@@ -30,7 +30,8 @@ public class ValiderProposition extends HttpServlet {
 		String prix = req.getParameter("prix");
 		String heureD = req.getParameter("heureD");
 		System.out.println(villeD);
-		if(villeD=="" ||villeA =="" || date==""){
+		if(villeD==null ||villeA ==null || date==null){
+			out.println("fuck");
 			res.sendRedirect("/servlet/ProposerTrajet");
 		}
 		out.println("<table>" + "<tr><th>" + "Pseudo</th><th>"

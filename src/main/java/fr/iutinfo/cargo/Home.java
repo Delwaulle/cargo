@@ -45,9 +45,10 @@ public class Home extends HttpServlet {
 			out.println("<ul id=\"menu-demo2\">");
 			out.println("<li class='bonjour'><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
 			out.println("<ul>");
-			out.println("<li><a href=\"#\">Notifications</a></li>");
-			out.println("<li><a href=\"#\">Voir Profil</a></li>");
-			out.println("<li><a href=\"#\">Historique trajets</a></li>");
+			out.println("<li><a href=/servlet/ListerNotifications>Notifications</a></li>");
+			out.println("<li><a href=/servlet/ConsultationProfil>Voir Profil</a></li>");
+			out.println("<li><a href=/servlet/PageReservation>Réservation</a></li>");
+			out.println("<li><a href=/servlet/HistoriqueTrajet>Historique des trajets</a></li>");
 			out.println("<li><a href=\"servlet/Deconnect\">Se deconnecter </a></li>");
 			
 			out.println("</ul>");
