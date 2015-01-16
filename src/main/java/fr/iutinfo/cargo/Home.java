@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @SuppressWarnings("serial")
-@WebServlet("/")
+@WebServlet("")
 public class Home extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
@@ -20,11 +20,11 @@ public class Home extends HttpServlet {
 		out.println("<head>");
 		out.println("<title>La page d'accueil</title>");
 		out.println("<meta charset='utf-8'>");
-		out.println("<link rel=\"stylesheet\" href=\"index.css\" >");
+		out.println("<link rel=\"stylesheet\" href=\"../index.css\" >");
 		out.println("</head><body>");
 		out.println("<header class=\"entete\">");
 		out.println("<div class=\"header-containt\">");
-		out.println("<a href=\"\" class=\"logo\"><img src=\"logo.jpg\" alt=\"CarGo !\"></a>");
+		out.println("<a href=\"\" class=\"logo\"><img src=\"../logo.jpg\" alt=\"CarGo !\"></a>");
 		out.println("<nav class=\"site-menu\">");
 		out.println("<ul class=\"menu-lien\">");
 		out.println("<li class =\"menu-btn\">");
@@ -37,7 +37,7 @@ public class Home extends HttpServlet {
 			out.println("<span \"pipe\"> | </span>");
 			out.println("</li>");
 			out.println("<li class=\"connexion\">");
-			out.println("<a href=\"login.html\" class=\"connexion\">Se connecter </a>");
+			out.println("<a href=\"../login.html\" class=\"connexion\">Se connecter </a>");
 			out.println("</li>");
 		} else {
 			out.println("<li class=\"inscription\">");
@@ -45,7 +45,7 @@ public class Home extends HttpServlet {
 			out.println("<li><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
 			out.println("<ul>");
 			out.println("<li><a href=\"#\">Voir Profil</a></li>");
-			out.println("<li><a href=\"servlet/ListerNotifications\">Notifications</a></li>");
+			out.println("<li><a href=\"#\">Notifications</a></li>");
 			out.println("</ul>");
 			out.println("</li>");
 			out.println("</ul>");
