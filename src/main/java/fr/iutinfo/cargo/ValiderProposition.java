@@ -38,7 +38,7 @@ public class ValiderProposition extends HttpServlet {
 				+ "Ville de départ</th> <th>" + "Ville d'arrivée</th><th>"
 				+ "Date</th> <th>" + "Heure de départ</th> <th>"
 				+ "Nombre de place(s) disponible(s)</th> <th>"
-				+ "Prix</th><td></tr><tr>" + login
+				+ "Prix</th></tr><tr><td>" + login
 				+ "</td><td>" + villeD + "</td><td>" + villeA + "</td><td>"
 				+ date + "</td><td>" + heureD + "</td><td>" + nbPlaces
 				+ "</td><td>" + prix + "</td></tr><td>");
