@@ -48,7 +48,7 @@ public class ListerNotifications  extends HttpServlet{
 			out.println("<td>"+i+"</td>");
 			out.println("<td>"+notifications.get(i).getExpediteur()+"</td>");
 			out.println("<td>"+notifications.get(i).getMessage()+"</td>");
-			out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
+			out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/UpdateReservation\">");
 	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ notifications.get(i).getIdnotif() + "\">");
 	    	out.println("<INPUT type = \"submit\" name=\"accepter\" value = \"Accepter\">" +
 	    			"<INPUT type = \"submit\" name = \"refuser\" value = \"Refuser\">" +
