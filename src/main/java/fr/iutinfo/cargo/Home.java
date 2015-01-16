@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @SuppressWarnings("serial")
-@WebServlet("/servlet/Home")
+@WebServlet("")
 public class Home extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
@@ -23,7 +23,7 @@ public class Home extends HttpServlet {
 		out.println("</head><body>");
 		out.println("<header class=\"entete\">");
 		out.println("<div class=\"header-containt\">");
-		out.println("<a href=\"Home\" class=\"logo\"><img src=\"../logo.jpg\" alt=\"CarGo !\"></a>");
+		out.println("<a href=\"\" class=\"logo\"><img src=\"../logo.jpg\" alt=\"CarGo !\"></a>");
 		out.println("<nav class=\"site-menu\">");
 		out.println("<ul class=\"menu-lien\">");
 		out.println("<li class =\"menu-btn\">");

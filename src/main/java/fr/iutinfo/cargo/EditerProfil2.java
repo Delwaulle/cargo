@@ -32,7 +32,7 @@ public class EditerProfil2 extends HttpServlet {
 	    db.updateProfil(nom, prenom, numtel, mail);
 	    
 	    out.println("Vos donnees ont bien été mise a jour !");
-	    out.println("<br/><a href='Home'>Retour au Home</a>");
+	    out.println("<br/><a href=''>Retour au Home</a>");
 	    
 	    out.println("<body><center></html>");
 	   
