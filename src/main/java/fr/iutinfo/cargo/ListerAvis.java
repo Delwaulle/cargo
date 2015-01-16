@@ -27,9 +27,8 @@ public class ListerAvis  extends HttpServlet{
 		}
 		OutilBDD obdd=new OutilBDD();
 		ArrayList<Avis>  avis=obdd.recupererAvis(login);
-		ArrayList<String> avisTronc=new ArrayList<String>();
 		out.println("<html>");
-		out.println("<head><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet> <link href=../img.css type=text/css rel=stylesheet><link href=../avis.css type=text/css rel=stylesheet>  <Title> Avis </Title></head>");
+		out.println("<head><meta charset=UTF-8><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet> <link href=../img.css type=text/css rel=stylesheet><link href=../avis.css type=text/css rel=stylesheet>  <Title> Avis </Title></head>");
 		out.println("<body>");
 		out.println("<table class=table table-striped><thead><tr>");
 		out.println("<th>#</th>");
@@ -41,14 +40,6 @@ public class ListerAvis  extends HttpServlet{
 		
 		out.println("<tbody class=zebra-striped>");
 		for(int i=0;i<avis.size();i++){
-			for(int j=0;j<avis.get(i).getAvis().length();j++){
-				if(j%20==0){
-					avisTronc.add("<br>"+avis.get(i).getAvis());
-				}else 
-					avisTronc.add(avis.get(i).getAvis());
-			}
-		}
-		for(int i=0;i<avis.size();i++){
 			out.println("<tr>");
 			out.println("<td>"+i+"</td>");
 			out.println("<td>"+avis.get(i).getConducteur()+"</td>");
@@ -58,7 +49,7 @@ public class ListerAvis  extends HttpServlet{
 				out.println("<img src =../img/star.png alt=/>");
 			}
 			out.println("<h2>/5</h2></td>");
-			out.println("<td>"+avisTronc.get(i)+"</td>");
+			out.println("<td>"+this.getAvis(avis.get(i).getAvis())+"</td>");
 			out.println("<td>"+avis.get(i).getPassager()+"</td>");
 			out.println("</tr>");
 		}
@@ -67,5 +58,16 @@ public class ListerAvis  extends HttpServlet{
 		out.println("</table>");
 		
 		
+	}
+	
+	public String getAvis(String avis){
+		String str="";
+		for(int i=0;i<avis.length();i++){
+			if(i%50==0 && i!=0){
+				str+=avis.charAt(i)+"<br>";
+			}else 
+				str+=avis.charAt(i);
+		}
+		return str;
 	}
 }
