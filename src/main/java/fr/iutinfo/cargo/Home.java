@@ -20,11 +20,11 @@ public class Home extends HttpServlet {
 		out.println("<head>");
 		out.println("<title>La page d'accueil</title>");
 		out.println("<meta charset='utf-8'>");
-		out.println("<link rel=\"stylesheet\" href=\"index.css\" >");
+		out.println("<link rel=\"stylesheet\" href=\"../index.css\" >");
 		out.println("</head><body>");
 		out.println("<header class=\"entete\">");
 		out.println("<div class=\"header-containt\">");
-		out.println("<a href=\"\" class=\"logo\"><img src=\"logo.jpg\" alt=\"CarGo !\"></a>");
+		out.println("<a href=\"\" class=\"logo\"><img src=\"../logo.jpg\" alt=\"CarGo !\"></a>");
 		out.println("<nav class=\"site-menu\">");
 		out.println("<ul class=\"menu-lien\">");
 		out.println("<li class =\"menu-btn\">");
@@ -37,7 +37,7 @@ public class Home extends HttpServlet {
 			out.println("<span \"pipe\"> | </span>");
 			out.println("</li>");
 			out.println("<li class=\"connexion\">");
-			out.println("<a href=\"login.html\" class=\"connexion\">Se connecter </a>");
+			out.println("<a href=\"../login.html\" class=\"connexion\">Se connecter </a>");
 			out.println("</li>");
 		} else {
 			out.println("<li class=\"inscription\">");
@@ -94,7 +94,7 @@ public class Home extends HttpServlet {
 
 		out.println("<div class=\"image\">");
 
-		out.println("<img src=\"image.jpg\" alt=\"map\">");
+		out.println("<img src=\"../image.jpg\" alt=\"map\">");
 
 		out.println("</div>");
 				
@@ -102,7 +102,7 @@ public class Home extends HttpServlet {
 		out.println("<footer>");
 		out.println("<div class=\"barre-menu-haut\">");
 		out.println("<h3>Infos Pratiques<h3>");
-		out.println("<h3><a href=\"contact.html\" class=\"contact\"> Contact</a><h3>");
+		out.println("<h3>A propos<h3>");
 		out.println("<h3>Newsletter<h3>");
 		
 		out.println("</div>");
