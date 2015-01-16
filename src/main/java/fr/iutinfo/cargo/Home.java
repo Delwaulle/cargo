@@ -20,7 +20,7 @@ public class Home extends HttpServlet {
 		out.println("<head>");
 		out.println("<title>La page d'accueil</title>");
 		out.println("<meta charset='utf-8'>");
-		out.println("<link rel=\"stylesheet\" href=\"../index.css\" >");
+		out.println("<link rel=\"stylesheet\" href=\"index.css\" >");
 		out.println("</head><body>");
 		out.println("<header class=\"entete\">");
 		out.println("<div class=\"header-containt\">");
