@@ -97,7 +97,6 @@ public class AfficherListe extends HttpServlet {
 			out.print("<th>arrivee</TH>");
 			out.print("<th>date</TH>");
 			out.print("<th>heure depart</TH>");
-			out.print("<th>heure arrivée</TH>");
 			out.print("<th>nombre de places :</th>");
 			out.print("<th>Prix :</TH>");
 			out.print("<th></TH>");
@@ -112,7 +111,6 @@ public class AfficherListe extends HttpServlet {
 				out.println("<td class=info>" + liste.get(i).getVilleArrivee() + "</td>");
 				out.println("<td class=info>" + liste.get(i).getDateTrajet() + "</td>");
 				out.println("<td class=info>" + liste.get(i).getHeureDepart() + "</td>");
-				out.println("<td class=info>" + liste.get(i).getHeureArrivee() + "</td>");
 				out.println("<td class=info>" + liste.get(i).getNbPlace() + "</td>");
 				out.println("<td class=info>" + liste.get(i).getPrix() + "</td>");
 				out.println("<td><FORM METHOD = \"POST\" ACTION = \"/servlet/DetailsTrajet\">");
@@ -120,7 +118,6 @@ public class AfficherListe extends HttpServlet {
 		    	out.println("<INPUT type = \"hidden\" name =\"arrivee\" value =\""+liste.get(i).getVilleArrivee() + "\">");
 		    	out.println("<INPUT type = \"hidden\" name =\"date\" value =\""+liste.get(i).getDateTrajet() + "\">");
 		    	out.println("<INPUT type = \"hidden\" name =\"heureDepart\" value =\""+liste.get(i).getHeureDepart() + "\">");
-		    	out.println("<INPUT type = \"hidden\" name =\"heureArrivee\" value =\""+liste.get(i).getHeureArrivee() + "\">");
 		    	out.println("<INPUT type = \"hidden\" name =\"nbPlace\" value =\""+liste.get(i).getNbPlace() + "\">");
 		    	out.println("<INPUT type = \"hidden\" name =\"prix\" value =\""+liste.get(i).getPrix() + "\">");
 		    	out.println("<INPUT type = \"submit\" value = \"Details\"></FORM></td>");
