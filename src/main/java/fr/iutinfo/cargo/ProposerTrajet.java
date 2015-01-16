@@ -34,16 +34,16 @@ public class ProposerTrajet extends HttpServlet {
 		out.println("<head><meta charset=UTF-8><link href=../bootstrap/css/bootstrap.min.css type=text/css rel=stylesheet><link href=../bouton.css type=text/css rel=stylesheet><Title> Proposer un trajet </Title></head>");
 		out.println("<div class=container-fluid>");
 		out.println("<p class=lead> Entrez un trajet </p>");
-		out.println("<form method=get action=../servlet/ValiderProposition");
+		out.println("<form method=get action=../servlet/ValiderProposition>");
 		out.println("<div class=input>"+
-				"<label>Ville de d�part :</label>"+
+				"<label>Ville de départ :</label>"+
 				"<div>"+
 				" <input type=text class=form-control name=villeD placeholder=Ex:&nbsp;Lille>"+
 				//"</div>"+
 				"</div>");
 
 		out.println("<div class=input>"+
-				"<label>Ville d'arriv�e :</label>"+
+				"<label>Ville d'arrivée :</label>"+
 				"<div>"+
 				"<input type=text class=form-control name=villeA placeholder=Ex:&nbsp;Paris>"+
 				"</div>"+
@@ -107,9 +107,10 @@ public class ProposerTrajet extends HttpServlet {
 				"</div>");
 		
 		out.println("<div>"+
+				"<form method=get action=/servlet/Home>"+
 				"<div class=boutton>"+
-				"<button type=button class=btn btn-warning>annuler</button>"+
-				"</div>"+
+				"<button type=submit class=btn btn-warning>annuler</button>"+
+				"</div></form>"+
 				"<div class=boutton>"+
 				"<button id=suivant type=submit class=btn btn-warning >Suivant</button>"+
 				"</div>"+
