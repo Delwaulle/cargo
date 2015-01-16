@@ -12,8 +12,9 @@ public class Home extends HttpServlet {
 		PrintWriter out = res.getWriter();
 	    HttpSession session = req.getSession(true);
 	    Utilisateur u = (Utilisateur) session.getAttribute("iduser");
+	    OutilBDD o = new OutilBDD();
 	    
-	    new OutilBDD().creerTables();
+	    o.creerTables();
 	    
 		out.println("<!DOCTYPE html>");
 		out.println("<html lang=\"fr\">");
@@ -42,39 +43,38 @@ public class Home extends HttpServlet {
 		} else {
 			out.println("<li class=\"inscription\">");
 			out.println("<ul id=\"menu-demo2\">");
-			out.println("<li><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
+			out.println("<li class='bonjour'><a href=\"#\">Bonjour "+ u.getIduser() +".</a>");
 			out.println("<ul>");
-			out.println("<li><a href=\"#\">Voir Profil</a></li>");
 			out.println("<li><a href=\"#\">Notifications</a></li>");
+			out.println("<li><a href=\"#\">Voir Profil</a></li>");
+			out.println("<li><a href=\"#\">Historique trajets</a></li>");
+			out.println("<li><a href=\"servlet/Deconnect\">Se deconnecter </a></li>");
+			
 			out.println("</ul>");
 			out.println("</li>");
 			out.println("</ul>");
 			 
-			/*<script language="JavaScript"> 
-			function ChangeUrl(formulaire) 
-			   { 
-			   if (formulaire.ListeUrl.selectedIndex != 0) 
-			      { 
-			     var url ; 
-			     url = formulaire.ListeUrl.options[formulaire.ListeUrl.selectedIndex].value; 
-			     window.open(url,'_blank'); 
-			       } 
-			   } 
-			</script> 
-			<FORM > 
-			<SELECT NAME="ListeUrl" SIZE=1 onChange="ChangeUrl(this.form)"  > 
-			<OPTION SELECTED VALUE="">-Menu Déroulant De Liens-</option> 
-			  <option value="Lien 1">Titre 1</option> 
-			  <option value="Lien 2">Titre 2</option> 
-			  <option value="Lien 3">Titre 3</option>
-			  <option value="Lien 4">Titre 4</option>  
-			</SELECT> 
-			</FORM>*/
-			out.println("<span \"pipe\"> | </span>");
-			out.println("</li>");
-			out.println("<li class=\"connexion\">");
-			out.println("<a href=\"Deconnect\" class=\"connexion\">Se deconnecter </a>");
-			out.println("</li>");
+			/*out.println("<script language='JavaScript'> "+
+			"function ChangeUrl(formulaire) { "+
+			   
+			  " if (formulaire.ListeUrl.selectedIndex != 0) "+
+			      "{" +
+			     "var url;" +
+			   "  url = formulaire.ListeUrl.options[formulaire.ListeUrl.selectedIndex].value;"+
+			     "window.open(url,'_blank');"+ 
+			      " } "+
+			  " } "+
+			"</script> "+
+			"<FORM >"+ 
+			"<SELECT NAME='ListeUrl' SIZE=1 onChange='ChangeUrl(this.form)'  > "+
+			"<OPTION SELECTED VALUE=''>-Menu Déroulant De Liens-</option> "+
+			 " <option value='Lien 1'>Titre 1</option> "+
+			 " <option value='Lien 2'>Titre 2</option> "+
+			 " <option value='Lien 3'>Titre 3</option>"+
+			 " <option value='Lien 4'>Titre 4</option>  "+
+			"</SELECT> "+
+			"</FORM>");*/
+		
 		}
 		
 		out.println("</ul>");
@@ -102,8 +102,8 @@ public class Home extends HttpServlet {
 		out.println("<footer>");
 		out.println("<div class=\"barre-menu-haut\">");
 		out.println("<h3>Infos Pratiques<h3>");
-		out.println("<h3><a href=\"contact.html\" class=\"contact\"> Contact</a><h3>");
-		out.println("<h3>Newsletter<h3>");
+		out.println("<h3><a href=contact.html class=contact>Contact </a></h3>");
+		out.println("<h3>NewsLetter<h3>");
 		
 		out.println("</div>");
 		out.println("</footer>");
