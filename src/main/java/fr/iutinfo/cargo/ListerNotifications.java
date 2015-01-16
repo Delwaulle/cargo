@@ -38,6 +38,7 @@ public class ListerNotifications  extends HttpServlet{
 		out.println("<th>#</th>");
 		out.println("<th>Expediteur</th>");
 		out.println("<th>Message</th>");
+		out.println("<th></th>");
 		out.println("</tr></thead>");
 		
 		out.println("<tbody class=zebra-striped>");
@@ -47,6 +48,11 @@ public class ListerNotifications  extends HttpServlet{
 			out.println("<td>"+i+"</td>");
 			out.println("<td>"+notifications.get(i).getExpediteur()+"</td>");
 			out.println("<td>"+notifications.get(i).getMessage()+"</td>");
+			out.println("<td><FORM METHOD = \"GET\" ACTION = \"/servlet/ReserverTrajet\">");
+	    	out.println("<INPUT type = \"hidden\" name =\"idTrajet\" value =\""+ notifications.get(i).getIdnotif() + "\">");
+	    	out.println("<INPUT type = \"submit\" name=\"accepter\" value = \"Accepter\">" +
+	    			"<INPUT type = \"submit\" name = \"refuser\" value = \"Refuser\">" +
+	    			"</FORM></td>");
 			out.println("</tr>");
 		}
 		
@@ -54,7 +60,5 @@ public class ListerNotifications  extends HttpServlet{
 		out.println("</table>");
 		out.println("</body>");
 		out.println("</html>");
-		
-		
 	}
 }
