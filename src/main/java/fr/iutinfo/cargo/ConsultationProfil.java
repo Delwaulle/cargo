@@ -88,13 +88,13 @@ public class ConsultationProfil extends HttpServlet {
 		
 		out.println("<h1> Informations sur Conducteur  </h1> ");
 		
-		out.println("<h2>Nom </h2><br>");
-		out.println("<h3>"+conducteur.getNom()+"</h3>");
-		out.println("<h2>Prenom </h2><br>");
-		out.println("<h3>"+conducteur.getPrenom()+"</h3>");
-		out.println("<h2>Numero tel </h2><br>");
-		out.println("<h3>"+conducteur.getNumtel()+"</h3>");
-		out.println("<h2>Adresse mail </h2><br>");
+		out.println("<h2>Nom </h2>");
+		out.println("<h3>"+conducteur.getNom()+"</h3><br>");
+		out.println("<h2>Prenom </h2>");
+		out.println("<h3>"+conducteur.getPrenom()+"</h3><br>");
+		out.println("<h2>Numero tel </h2>");
+		out.println("<h3>"+conducteur.getNumtel()+"</h3><br>");
+		out.println("<h2>Adresse mail </h2>");
 		out.println("<h3>"+conducteur.getMail()+"</h3><br><br><br><br>");
 	
 		
